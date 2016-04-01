@@ -1,0 +1,31 @@
+.candidate {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35vh;
+  text-align: center;
+  font-size: 10vh;
+}
+input.candidate {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: rgba(0,0,0,0);
+}
+.candidate:focus {
+  outline: none;
+}
+#font1 {
+  font-family: "Tsukushi A Round Gothic";
+}
+#font2 {
+  font-family: "Tsukushi B Round Gothic";
+  color: green;
+  opacity: 0.7;
+}
+.fontcontroller {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

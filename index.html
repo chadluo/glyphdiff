@@ -5,41 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Font Comparator</title>
 
-  <!-- bootstrap -->
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <!-- /jQuery -->
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <!-- /bootstrap -->
+  <!-- /Bootstrap -->
 
-  <!-- jquery-ui -->
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <!-- /jquery-ui -->
-
-  <style>
-  .candidate {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 25vh;
-    text-align: center;
-    font-size: 25vh;
-  }
-  #font1 {
-    font-family: "Charter";
-  }
-  #font2 {
-    font-family: "Charis SIL";
-    color: green;
-    opacity: 0.7;
-  }
-  </style>
+  <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-  <div class="candidate" id="font1">amaranthine</div>
-  <div class="candidate" id="font2">amaranthine</div>
+  <div class="candidate" id="font1"></div>
+  <div class="candidate" id="font2"></div>
+  <input class="candidate" type="text" value="夏でも底に冷たさをもつ青いそら" id="input">
 
+  <!-- <div class="fontcontroller">
+  <div class="container-fluid">
+  <div class="panel panel-default">
+  <div class="panel-body">
+  <div class="row">
+  <div class="col-xs-6">
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-font" aria-hidden="true"></span></span>
+  <input type="text" class="form-control" placeholder="Font 1" aria-describedby="basic-addon1">
+</div>
+</div>
+<div class="col-xs-6">
+<div class="input-group">
+<span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-font" aria-hidden="true"></span></span>
+<input type="text" class="form-control" placeholder="Font 2" aria-describedby="basic-addon2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> -->
+
+<script src="app.js"></script>
 </body>
 </html>
