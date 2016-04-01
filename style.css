@@ -1,3 +1,6 @@
+::-moz-selection { background: rgba(0,255,0,0.4); }
+::selection { background: rgba(0,255,0,0.4); }
+
 .candidate {
   position: absolute;
   left: 0;
@@ -15,7 +18,7 @@ input.candidate {
 .candidate:focus {
   outline: none;
 }
-#font1 {
+#font1, input.candidate {
   font-family: "Tsukushi A Round Gothic";
 }
 #font2 {
@@ -25,7 +28,7 @@ input.candidate {
 }
 .fontcontroller {
   position: absolute;
-  bottom: 0;
+  bottom: 15px;
   left: 0;
   right: 0;
 }
