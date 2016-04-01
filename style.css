@@ -28,10 +28,10 @@ input.candidate {
   outline: none;
 }
 #font1, input.candidate {
-  font-family: "Tsukushi A Round Gothic";
+  font-family: "Helvetica";
 }
 #font2 {
-  font-family: "Tsukushi B Round Gothic";
+  font-family: "Helvetica Neue";
   color: green;
   opacity: 0.7;
 }
