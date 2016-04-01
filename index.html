@@ -5,36 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Font Comparator</title>
 
-  <!-- jQuery -->
+  <!-- jQuery & Bootstrap -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <!-- /jQuery -->
-  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <!-- /Bootstrap -->
+  <!-- /jQuery & Bootstrap -->
 
   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 
-  <div class="candidate" id="font1"></div>
-  <div class="candidate" id="font2"></div>
-  <input class="candidate" type="text" value="夏でも底に冷たさをもつ青いそら" id="input">
+  <div class="writepad">
+    <div class="candidate">
+      <span id="font1"></span>
+    </div>
+    <div class="candidate">
+      <span id="font2"></span>
+    </div>
+    <input class="candidate" type="text" value="ようこそ" id="input">
+  </div>
 
   <div class="fontcontroller">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-xs-6">
           <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-font" aria-hidden="true"></span></span>
-            <input id="fontfamily1" type="text" class="form-control" placeholder="Font 1" aria-describedby="basic-addon1">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-font"></span></span>
+            <input id="fontfamily1" type="text" class="form-control" placeholder="Font 1" tabindex="1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-bold"></span></span>
+            <input id="fontweight1" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
           </div>
         </div>
         <div class="col-xs-6">
           <div class="input-group">
-            <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-font" aria-hidden="true"></span></span>
-            <input id="fontfamily2" type="text" class="form-control" placeholder="Font 2" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-font" ></span></span>
+            <input id="fontfamily2" type="text" class="form-control" placeholder="Font 2" tabindex="2">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-bold"></span></span>
+            <input id="fontweight2" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
           </div>
         </div>
       </div>
