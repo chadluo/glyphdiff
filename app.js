@@ -1,91 +1,116 @@
 'use strict';
 
-// sync sample content
+/// id-selector shorthand
+function $(x) {
+  return document.getElementById(x);
+}
 
-var input = document.getElementById('input'),
-    canvas = document.getElementById('pad'), ctx = canvas.getContext('2d'),
-    canvasX, canvasY, font1 = 'Tsukushi A Round Gothic',
-    font2 = 'Tsukushi B Round Gothic', content = 'いろは'
+var input = $('input');
+var canvas = $('pad');
+var ctx = canvas.getContext('2d');
+/// states
+var content = 'いろは'
+var font1 = 'Tsukushi A Round Gothic', font2 = 'Tsukushi B Round Gothic'
+/// handlers
+var family1 = $('fontfamily1'), family2 = $('fontfamily2');
+var weight1 = $('fontweight1'), weight2 = $('fontweight2');
+var size2 = $('size2');
+var spacing2 = $('spacing2');
+var opacity2 = $('opacity2');
 
-
-function repaint(content, font1, font2) {
+function repaint() {
+  // warmup
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight * .8;
-  canvasX = canvas.width / 2, canvasY = canvas.height / 2
+  var canvasX = canvas.width / 2, canvasY = canvas.height / 2
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
+
+  // draw samples
   ctx.font = '31.25vh ' + font1
   ctx.fillText(content, canvasX, canvasY)
-  ctx.fillStyle = 'rgba(0,200,0,0.7)';
+  ctx.fillStyle = 'rgba(0,192,0,0.7)';
   ctx.font = '31.25vh ' + font2
   ctx.fillText(content, canvasX, canvasY)
   // measureText()
-}
+};
 
-repaint(content, font1, font2)
+window.addEventListener('resize', repaint, false);
 
-input.addEventListener(
-    'keyup', function() { repaint(input.value, font1, font2) });
+// sync sample content
+
+input.addEventListener('keyup', function() {
+  content = input.value;
+  repaint();
+});
 
 // update font family
 
-var family1 = document.getElementById('fontfamily1'),
-    family2 = document.getElementById('fontfamily2')
-
 family1.addEventListener('keyup', function() {
-  f1.style.fontFamily = family1.value
-  input.style.fontFamily = family1.value
-})
+  input.style.fontFamily = family1.value;  // matching width
+  font1 = fontfamily1.value;
+  repaint();
+});
 
-family2.addEventListener(
-    'keyup', function() { f2.style.fontFamily = family2.value });
+family2.addEventListener('keyup', function() {
+  font2 = fontfamily2.value;
+  repaint();
+});
 
 // update font color
 
-var light = document.getElementById('color-light'),
-    sepia = document.getElementById('color-sepia'),
-    storm = document.getElementById('color-storm'),
-    dark = document.getElementById('color-dark'),
-    color2 = document.getElementById('color2')
+var light = $('color-light');
+var sepia = $('color-sepia');
+var storm = $('color-storm');
+var dark = $('color-dark');
+var color2 = $('color2');
 
 light.addEventListener(
-    'click', function() { document.body.className = 'color-light' })
+    'click', function() { document.body.className = 'color-light' });
 
 sepia.addEventListener(
-    'click', function() { document.body.className = 'color-sepia' })
+    'click', function() { document.body.className = 'color-sepia' });
 
 storm.addEventListener(
-    'click', function() { document.body.className = 'color-storm' })
+    'click', function() { document.body.className = 'color-storm' });
 
 dark.addEventListener(
-    'click', function() { document.body.className = 'color-dark' })
+    'click', function() { document.body.className = 'color-dark' });
 
 color2.addEventListener('keyup', function() { f2.style.color = color2.value });
 
 // update font weight
 
-var weight1 = document.getElementById('fontweight1'),
-    weight2 = document.getElementById('fontweight2')
 
-weight1.addEventListener(
-    'change', function() { f1.style.fontWeight = weight1.value })
+// weight1.addEventListener('change', () => {f1.style.fontWeight =
+// weight1.value});
 
-weight2.addEventListener(
-    'change', function() { f2.style.fontWeight = weight2.value });
+// weight2.addEventListener('change', () => {f2.style.fontWeight =
+// weight2.value});
 
 // update size
 
-var size2 = document.getElementById('size2')
-size2.addEventListener('keyup', function() { f2.style.fontSize = size2.value });
+// size2.addEventListener('keyup', () => {f2.style.fontSize = size2.value});
 
-// update letter spacing
+// update varter spacing
 
-var spacing2 = document.getElementById('spacing2')
-spacing2.addEventListener(
-    'keyup', function() { f2.style.letterSpacing = spacing2.value });
+// spacing2.addEventListener(
+//     'keyup', () => {f2.style.varterSpacing = spacing2.value});
 
 // update opacity
 
-var opacity2 = document.getElementById('opacity2')
-opacity2.addEventListener(
-    'keyup', function() { f2.style.opacity = opacity2.value });
+// opacity2.addEventListener('keyup', () => {f2.style.opacity =
+// opacity2.value});
+
+// init
+repaint();
+
+
+
+// // // // // //
+
+// SVG alignment:
+// horizontal text-anchor
+// https://developer.mozilla.org/en/docs/Web/SVG/Attribute/text-anchor
+// vertical alignment-baseline
+// https://developer.mozilla.org/en/docs/Web/SVG/Attribute/text-anchor
