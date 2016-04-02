@@ -2,17 +2,30 @@
 
 // sync sample content
 
-var f1 = document.getElementById('font1'),
-    f2 = document.getElementById('font2'),
-    input = document.getElementById('input')
+var input = document.getElementById('input'),
+    canvas = document.getElementById('pad'), ctx = canvas.getContext('2d'),
+    canvasX, canvasY, font1 = 'Tsukushi A Round Gothic',
+    font2 = 'Tsukushi B Round Gothic', content = 'いろは'
 
-f1.textContent = input.value
-f2.textContent = input.value
 
-input.addEventListener('keyup', function() {
-  f1.textContent = input.value
-  f2.textContent = input.value
-});
+function repaint(content, font1, font2) {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight * .8;
+  canvasX = canvas.width / 2, canvasY = canvas.height / 2
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = '31.25vh ' + font1
+  ctx.fillText(content, canvasX, canvasY)
+  ctx.fillStyle = 'rgba(0,200,0,0.7)';
+  ctx.font = '31.25vh ' + font2
+  ctx.fillText(content, canvasX, canvasY)
+  // measureText()
+}
+
+repaint(content, font1, font2)
+
+input.addEventListener(
+    'keyup', function() { repaint(input.value, font1, font2) });
 
 // update font family
 
