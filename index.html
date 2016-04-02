@@ -17,19 +17,53 @@
     <div class="candidate">
       <span id="font2"></span>
     </div>
-    <input class="candidate" type="text" value="イロハ" id="input">
+    <input class="candidate" type="text" value="いろは" id="input">
   </div>
 
-  <div class="fontcontroller">
-    <div class="container">
-      <div class="row">
-        <div class="one-half column">
-          <input id="fontfamily1" type="text" placeholder="Font 1" tabindex="1">
-          <input id="fontweight1" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
+  <div class="container">
+    <div class="row">
+      <div class="one-half column">
+        <div class="row">
+          <input id="fontfamily1" class="nine columns" type="text" placeholder="Tsukushi A Round Gothic">
+          <select id="fontweight1" class="three columns">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400" selected>400</option>
+            <option value="500">500</option>
+            <option value="600">600</option>
+            <option value="700">700</option>
+            <option value="800">800</option>
+            <option value="900">900</option>
+          </select>
         </div>
-        <div class="one-half column">
-          <input id="fontfamily2" type="text" placeholder="Font 2" tabindex="2">
-          <input id="fontweight2" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
+        <!-- <input id="color1" type="text" placeholder="black"> -->
+        <span class="colors">
+          <a class="button color-light" id="color-light"></a>
+          <a class="button color-sepia" id="color-sepia"></a>
+          <a class="button color-storm" id="color-storm"></a>
+          <a class="button color-dark" id="color-dark"></a>
+        </span>
+      </div>
+      <div class="one-half column">
+        <div class="row">
+          <input id="fontfamily2" class="nine columns" type="text" placeholder="Tsukushi B Round Gothic">
+          <select id="fontweight2" class="three columns">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400" selected>400</option>
+            <option value="500">500</option>
+            <option value="600">600</option>
+            <option value="700">700</option>
+            <option value="800">800</option>
+            <option value="900">900</option>
+          </select>
+        </div>
+        <div class="row">
+          <input class="four columns" id="color2" type="text" placeholder="color">
+          <input class="four columns" id="spacing2" type="text" placeholder="letter spacing">
+          <input class="four columns" id="opacity2" type="text" placeholder="opacity">
         </div>
       </div>
     </div>
