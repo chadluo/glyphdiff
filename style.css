@@ -24,6 +24,7 @@ input.candidate {
   border: none;
   background: transparent;
   color: rgba(0,0,0,0);
+  text-shadow: none !important;
 }
 input.candidate:focus {
   border: 0;
