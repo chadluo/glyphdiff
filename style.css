@@ -55,3 +55,28 @@ input.candidate:focus {
   background: #111111;
   color: #999999
 }
+.info {
+  margin-bottom: 10vh;
+}
+.info a {
+  text-decoration: none;
+  color: #5E5545;
+}
+.color-storm a, .color-dark a {
+  color: #f8b500;
+}
+.info h1 {
+  font-family: 'Teko', sans-serif;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+}
+.info p {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-family: 'Mate', serif;
+}
+.info .addr {
+  margin-top: 2em;
+}

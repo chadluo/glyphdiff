@@ -58,6 +58,11 @@ weight1.addEventListener(
 weight2.addEventListener(
     'change', function() { f2.style.fontWeight = weight2.value });
 
+// update size
+
+var size2 = document.getElementById('size2')
+size2.addEventListener('keyup', function() { f2.style.fontSize = size2.value });
+
 // update letter spacing
 
 var spacing2 = document.getElementById('spacing2')

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Glyphdiff</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Teko:500|Mate" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -61,12 +61,21 @@
           </select>
         </div>
         <div class="row">
-          <input class="four columns" id="color2" type="text" placeholder="color">
-          <input class="four columns" id="spacing2" type="text" placeholder="letter spacing">
-          <input class="four columns" id="opacity2" type="text" placeholder="opacity">
+          <input class="three columns" id="color2" type="text" placeholder="color">
+          <input class="three columns" id="size2" type="text" placeholder="size">
+          <input class="three columns" id="spacing2" type="text" placeholder="letter spacing">
+          <input class="three columns" id="opacity2" type="text" placeholder="opacity">
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="container"><hr></div>
+
+  <div class="container info">
+    <h1>glyphdiff</h1>
+    <p>is a simple tool comparing the difference of two fonts on given glyphs.</p>
+    <p><a href="https://github.com/chadluo/glyphdiff">GitHub repo</a> &middot; <a href="/">made by chadluo</a></p>
   </div>
 
   <script src="app.js"></script>
