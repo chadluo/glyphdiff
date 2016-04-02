@@ -1,3 +1,5 @@
+'use strict';
+
 // sync sample content
 
 var f1 = document.getElementById('font1'),
