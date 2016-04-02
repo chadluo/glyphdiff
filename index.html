@@ -4,13 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Glyphdiff</title>
-
-  <!-- jQuery & Bootstrap -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <!-- /jQuery & Bootstrap -->
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -23,31 +17,19 @@
     <div class="candidate">
       <span id="font2"></span>
     </div>
-    <input class="candidate" type="text" value="#differ" id="input">
+    <input class="candidate" type="text" value="イロハ" id="input">
   </div>
 
   <div class="fontcontroller">
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
-          <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-font"></span></span>
-            <input id="fontfamily1" type="text" class="form-control" placeholder="Font 1" tabindex="1">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-bold"></span></span>
-            <input id="fontweight1" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
-          </div>
+        <div class="one-half column">
+          <input id="fontfamily1" type="text" placeholder="Font 1" tabindex="1">
+          <input id="fontweight1" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
         </div>
-        <div class="col-xs-6">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-font" ></span></span>
-            <input id="fontfamily2" type="text" class="form-control" placeholder="Font 2" tabindex="2">
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-bold"></span></span>
-            <input id="fontweight2" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
-          </div>
+        <div class="one-half column">
+          <input id="fontfamily2" type="text" placeholder="Font 2" tabindex="2">
+          <input id="fontweight2" type="number" min="100" max="900" step="100" class="form-control" placeholder="400">
         </div>
       </div>
     </div>
