@@ -1,6 +1,4 @@
-# Glyphdiff (prototype)
-
-_originally named 'Font Comparator'. too plain._
+# [glyphdiff](http://yuki.rocks/glyphdiff/)
 
 Name two fonts, see their differences, on given glyphs.
 

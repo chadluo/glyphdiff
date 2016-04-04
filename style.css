@@ -32,6 +32,7 @@ input.candidate {
   line-height: 40vmin;
   text-align: center;
   font-size: 37.5vh;
+  text-shado: none !important;
 }
 input.candidate:focus {
   border: 0;
