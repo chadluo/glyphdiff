@@ -1,116 +1,92 @@
 'use strict';
 
 /// id-selector shorthand
+
 function $(x) {
   return document.getElementById(x);
 }
 
-var input = $('input');
-var canvas = $('pad');
-var ctx = canvas.getContext('2d');
-/// states
-var content = 'いろは'
-var font1 = 'Tsukushi A Round Gothic', font2 = 'Tsukushi B Round Gothic'
-/// handlers
-var family1 = $('fontfamily1'), family2 = $('fontfamily2');
-var weight1 = $('fontweight1'), weight2 = $('fontweight2');
-var size2 = $('size2');
-var spacing2 = $('spacing2');
-var opacity2 = $('opacity2');
+// init
 
-function repaint() {
-  // warmup
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight * .8;
-  var canvasX = canvas.width / 2, canvasY = canvas.height / 2
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
+var s1 = $('sample1'), s2 = $('sample2');
+s1.textContent = s2.textContent = $('input').value
+s1.setAttribute('font-family', 'Tsukushi A Round Gothic');
+s2.setAttribute('font-family', 'Tsukushi B Round Gothic');
+s2.setAttribute('fill', 'green');
+s2.setAttribute('fill-opacity', '.7');
 
-  // draw samples
-  ctx.font = '31.25vh ' + font1
-  ctx.fillText(content, canvasX, canvasY)
-  ctx.fillStyle = 'rgba(0,192,0,0.7)';
-  ctx.font = '31.25vh ' + font2
-  ctx.fillText(content, canvasX, canvasY)
-  // measureText()
-};
+// update sample content
 
-window.addEventListener('resize', repaint, false);
-
-// sync sample content
-
-input.addEventListener('keyup', function() {
-  content = input.value;
-  repaint();
-});
+$('input')
+    .addEventListener(
+        'input', function() { s1.textContent = s2.textContent = this.value; });
 
 // update font family
 
-family1.addEventListener('keyup', function() {
-  input.style.fontFamily = family1.value;  // matching width
-  font1 = fontfamily1.value;
-  repaint();
-});
+$('fontfamily1')
+    .addEventListener('input', function() {
+      input.style.fontFamily = this.value || 'Tsukushi A Round Gothic';
+      s1.setAttribute('font-family', this.value || 'Tsukushi A Round Gothic');
+    });
 
-family2.addEventListener('keyup', function() {
-  font2 = fontfamily2.value;
-  repaint();
-});
+$('fontfamily2')
+    .addEventListener('input', function() {
+      s2.setAttribute('font-family', this.value || 'Tsukushi B Round Gothic');
+    });
 
 // update font color
 
-var light = $('color-light');
-var sepia = $('color-sepia');
-var storm = $('color-storm');
-var dark = $('color-dark');
-var color2 = $('color2');
+function updatePageColor(buttonID, bodyClass) {
+  $(buttonID)
+      .addEventListener(
+          'click', function() { document.body.className = bodyClass; })
+}
 
-light.addEventListener(
-    'click', function() { document.body.className = 'color-light' });
+updatePageColor('select-light', 'color-light');
+updatePageColor('select-sepia', 'color-sepia');
+updatePageColor('select-storm', 'color-storm');
+updatePageColor('select-dark', 'color-dark');
 
-sepia.addEventListener(
-    'click', function() { document.body.className = 'color-sepia' });
+$('color2')
+    .addEventListener('input', function() {
+      s2.setAttribute('fill', this.value || 'green');
+    });
 
-storm.addEventListener(
-    'click', function() { document.body.className = 'color-storm' });
+// update slant
 
-dark.addEventListener(
-    'click', function() { document.body.className = 'color-dark' });
-
-color2.addEventListener('keyup', function() { f2.style.color = color2.value });
+$('slant')
+    .addEventListener('change', function() {
+      s1.setAttribute('font-style', this.value);
+      s2.setAttribute('font-style', this.value);
+    });
 
 // update font weight
 
+$('fontweight1')
+    .addEventListener(
+        'change', function() { s1.setAttribute('font-weight', this.value) });
 
-// weight1.addEventListener('change', () => {f1.style.fontWeight =
-// weight1.value});
+$('fontweight2')
+    .addEventListener(
+        'change', function() { s2.setAttribute('font-weight', this.value) });
 
-// weight2.addEventListener('change', () => {f2.style.fontWeight =
-// weight2.value});
+// upate font size
 
-// update size
-
-// size2.addEventListener('keyup', () => {f2.style.fontSize = size2.value});
+$('size2')
+    .addEventListener('input', function() {
+      s2.setAttribute('font-size', this.value * 50 || 50)
+    });
 
 // update varter spacing
 
-// spacing2.addEventListener(
-//     'keyup', () => {f2.style.varterSpacing = spacing2.value});
+$('spacing2')
+    .addEventListener('input', function() {
+      s2.setAttribute('letter-spacing', this.value || 0)
+    });
 
 // update opacity
 
-// opacity2.addEventListener('keyup', () => {f2.style.opacity =
-// opacity2.value});
-
-// init
-repaint();
-
-
-
-// // // // // //
-
-// SVG alignment:
-// horizontal text-anchor
-// https://developer.mozilla.org/en/docs/Web/SVG/Attribute/text-anchor
-// vertical alignment-baseline
-// https://developer.mozilla.org/en/docs/Web/SVG/Attribute/text-anchor
+$('opacity2')
+    .addEventListener('input', function() {
+      s2.setAttribute('fill-opacity', this.value || .7)
+    });

@@ -1,26 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Glyphdiff</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko:500|Mate">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="writepad">
-    <canvas id="pad"></canvas>
+    <div id="svg">
+      <svg id="comparepad" width="100%" height="100%" viewbox="0 0 100 100">
+        <text id="sample1" x="50" y="65" font-size="50" text-anchor="middle" fill="currentColor"></text>
+        <text id="sample2" x="50" y="65" font-size="50" text-anchor="middle"></text>
+      </svg>
+    </div>
     <input class="candidate" type="text" value="いろは" id="input">
   </div>
 
   <div class="container">
     <div class="row">
       <div class="one-half column">
+        <!-- <div class="row">
+          <input id="webfont1" class="u-full-width" type="text" placeholder="webfont 1 (paste full <link>)">
+        </div> -->
         <div class="row">
-          <input id="fontfamily1" class="nine columns" type="text" placeholder="Tsukushi A Round Gothic">
+          <input id="fontfamily1" class="nine columns" type="text" placeholder="font 1 (Tsukushi A Round Gothic)">
           <select id="fontweight1" class="three columns">
             <option value="100">100</option>
             <option value="200">200</option>
@@ -33,17 +42,24 @@
             <option value="900">900</option>
           </select>
         </div>
-        <!-- <input id="color1" type="text" placeholder="black"> -->
         <span class="colors">
-          <a class="button color-light" id="color-light"></a>
-          <a class="button color-sepia" id="color-sepia"></a>
-          <a class="button color-storm" id="color-storm"></a>
-          <a class="button color-dark" id="color-dark"></a>
+          <a class="button color-light" id="select-light"></a>
+          <a class="button color-sepia" id="select-sepia"></a>
+          <a class="button color-storm" id="select-storm"></a>
+          <a class="button color-dark" id="select-dark"></a>
         </span>
+        <select id="slant" class="u-pull-right">
+          <option value="normal" selected>normal</option>
+          <option value="italic">italic</option>
+          <option value="oblique">oblique</option>
+        </select>
       </div>
       <div class="one-half column">
+        <!-- <div class="row">
+          <input id="webfont2" class="u-full-width" type="text" placeholder="webfont 2 (paste full <link>)">
+        </div> -->
         <div class="row">
-          <input id="fontfamily2" class="nine columns" type="text" placeholder="Tsukushi B Round Gothic">
+          <input id="fontfamily2" class="nine columns" type="text" placeholder="font 2 (Tsukushi B Round Gothic)">
           <select id="fontweight2" class="three columns">
             <option value="100">100</option>
             <option value="200">200</option>
@@ -57,23 +73,25 @@
           </select>
         </div>
         <div class="row">
-          <input class="three columns" id="color2" type="text" placeholder="color">
-          <input class="three columns" id="size2" type="text" placeholder="size">
-          <input class="three columns" id="spacing2" type="text" placeholder="letter spacing">
-          <input class="three columns" id="opacity2" type="text" placeholder="opacity">
+          <input class="three columns" id="color2" type="text" placeholder="color (green)">
+          <input class="three columns" id="size2" type="text" placeholder="size (1.0)">
+          <input class="three columns" id="spacing2" type="text" placeholder="tracking (0.0)">
+          <input class="three columns" id="opacity2" type="text" placeholder="opacity (0.7)">
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container"><hr></div>
+  <div class="container">
+    <hr>
+  </div>
 
   <div class="container info">
     <h1>glyphdiff</h1>
     <p>is a simple tool comparing the difference of two fonts on given glyphs.</p>
     <p><a href="https://github.com/chadluo/glyphdiff">GitHub repo</a> &middot; <a href="/">made by chadluo</a></p>
   </div>
-
   <script src="app.js"></script>
 </body>
+
 </html>
