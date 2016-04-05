@@ -1,11 +1,9 @@
-# [glyphdiff](http://yuki.rocks/glyphdiff/)
+# glyphdiff &middot; <http://yuki.rocks/glyphdiff/>
 
-Name two fonts, see their differences, on given glyphs.
+Compare fonts glyphwise.
 
-**Possibly in the future**
-
-- Support webfonts
+Choose your sample and the fonts you want to compare (including CSS-based webfonts), in your preferred colors. You can also tweak relative size and tracking if necessary.
 
 **License**
 
-Lemonade.
+[Lemonade](LICENSE.md).
