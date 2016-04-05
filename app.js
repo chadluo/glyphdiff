@@ -15,6 +15,8 @@ s2.setAttribute('font-family', 'Tsukushi B Round Gothic');
 s2.setAttribute('fill', 'green');
 s2.setAttribute('fill-opacity', '.7');
 
+var h = document.head.innerHTML;
+
 // update sample content
 
 $('input')
@@ -90,3 +92,13 @@ $('opacity2')
     .addEventListener('input', function() {
       s2.setAttribute('fill-opacity', this.value || .7)
     });
+
+// load webfonts
+
+$('webfont1')
+    .addEventListener(
+        'input', function() { document.head.innerHTML = h + this.value })
+
+$('webfont2')
+    .addEventListener(
+        'input', function() { document.head.innerHTML = h + this.value })
