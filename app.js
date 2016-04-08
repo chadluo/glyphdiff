@@ -1,3 +1,5 @@
+/*jslint browser:true*/
+/*jslint node:true*/
 'use strict';
 
 /// id-selector shorthand
@@ -9,13 +11,11 @@ function $(x) {
 // init
 
 var s1 = $('sample1'), s2 = $('sample2');
-s1.textContent = s2.textContent = $('input').value
+s1.textContent = s2.textContent = $('input').value;
 s1.setAttribute('font-family', 'Tsukushi A Round Gothic');
 s2.setAttribute('font-family', 'Tsukushi B Round Gothic');
 s2.setAttribute('fill', 'green');
 s2.setAttribute('fill-opacity', '.7');
-
-var h = document.head.innerHTML;
 
 // update sample content
 
@@ -27,7 +27,7 @@ $('input')
 
 $('fontfamily1')
     .addEventListener('input', function() {
-      input.style.fontFamily = this.value || 'Tsukushi A Round Gothic';
+      $('input').style.fontFamily = this.value || 'Tsukushi A Round Gothic';
       s1.setAttribute('font-family', this.value || 'Tsukushi A Round Gothic');
     });
 
@@ -41,7 +41,7 @@ $('fontfamily2')
 function updatePageColor(buttonID, bodyClass) {
   $(buttonID)
       .addEventListener(
-          'click', function() { document.body.className = bodyClass; })
+          'click', function() { document.body.className = bodyClass; });
 }
 
 updatePageColor('select-light', 'color-light');
@@ -66,39 +66,41 @@ $('slant')
 
 $('fontweight1')
     .addEventListener(
-        'change', function() { s1.setAttribute('font-weight', this.value) });
+        'change', function() { s1.setAttribute('font-weight', this.value); });
 
 $('fontweight2')
     .addEventListener(
-        'change', function() { s2.setAttribute('font-weight', this.value) });
+        'change', function() { s2.setAttribute('font-weight', this.value); });
 
 // upate font size
 
 $('size2')
     .addEventListener('input', function() {
-      s2.setAttribute('font-size', this.value * 50 || 50)
+      s2.setAttribute('font-size', this.value * 50 || 50);
     });
 
 // update varter spacing
 
 $('spacing2')
     .addEventListener('input', function() {
-      s2.setAttribute('letter-spacing', this.value || 0)
+      s2.setAttribute('letter-spacing', this.value || 0);
     });
 
 // update opacity
 
 $('opacity2')
     .addEventListener('input', function() {
-      s2.setAttribute('fill-opacity', this.value || .7)
+      s2.setAttribute('fill-opacity', this.value || 0.7);
     });
 
 // load webfonts
 
+var h = document.head.innerHTML;
+
 $('webfont1')
     .addEventListener(
-        'input', function() { document.head.innerHTML = h + this.value })
+        'input', function() { document.head.innerHTML = h + this.value; });
 
 $('webfont2')
     .addEventListener(
-        'input', function() { document.head.innerHTML = h + this.value })
+        'input', function() { document.head.innerHTML = h + this.value; });
