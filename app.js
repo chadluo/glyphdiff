@@ -94,3 +94,10 @@ $('webfont1')
 
 $('webfont2')
     .oninput = function() { document.head.innerHTML = h + this.value; };
+
+// toggle baseline
+
+$('toggle-baseline')
+    .onclick = function() {
+  $('baseline').setAttribute('opacity', this.checked ? 1 : 0);
+}
