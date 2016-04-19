@@ -6,39 +6,48 @@
 }
 body {
   margin: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
-.writepad {
-  position: relative;
-  height: 75vh
+#writepad, #input {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 75vh;
+}
+#writepad {
+  z-index: -1;
+}
+#input {
+  color: transparent;
+  background: transparent;
+  border: none;
+  font-size: 45vh;
+  text-align: center;
+  z-index: 0;
+}
+#input:focus {
+  outline: none;
+}
+.main {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 75vh;
+  padding-bottom: 10vh;
+  background: #f8f8f8;
+  z-index: 1;
 }
 #svg {
   height: 100%;
-  overflow: visible
+  overflow: visible;
 }
 #baseline {
   stroke-width: 1px;
 }
-@media (-webkit-min-device-pixel-ratio: 2),
-       (min--moz-device-pixel-ratio: 2),
-       (min-resolution: 2dppx),
-       (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
   #baseline {
     stroke-width: 0.5px;
   }
-}
-input.candidate {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  color: rgba(0, 0, 0, 0);
-  padding: 0;
-  line-height: 40vmin;
-  text-align: center;
-  font-size: 37.5vh;
-  text-shadow: none !important;
 }
 input.candidate:focus {
   border: 0;
@@ -59,8 +68,21 @@ input.candidate:focus {
   background: #111111;
   color: #999999
 }
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+.flt {
+  position: fixed;
+  z-index: 2;
+  bottom: 5vmin;
+  right: 5vmin;
+}
+.flt a {
+  margin: 0 5px;
+}
 .info {
-  margin-bottom: 10vh;
+  margin-bottom: 0;
 }
 .info a {
   text-decoration: none;
@@ -78,8 +100,10 @@ input.candidate:focus {
 .info p {
   margin: auto;
   text-align: center;
-  font-family: 'Mate', serif;
 }
 .info .addr {
   margin-top: 2em;
+}
+.v-center {
+  padding-top: 25px;
 }

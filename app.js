@@ -37,7 +37,7 @@ $('fontfamily2')
 // update font color
 
 function updatePageColor(buttonID, bodyClass) {
-  $(buttonID).onclick = function() { document.body.className = bodyClass; };
+  $(buttonID).onclick = function() { $('writepad').className = bodyClass; };
 }
 
 updatePageColor('select-light', 'color-light');
@@ -50,39 +50,37 @@ $('color2')
 
 // update slant
 
-$('slant')
-    .onchange = function() {
-  s1.setAttribute('font-style', this.value);
-  s2.setAttribute('font-style', this.value);
-};
+var slantOptions = document.getElementsByName('slant');
+for (var i = 0; i < slantOptions.length; i++) {
+  slantOptions[i].onclick = function() {
+    s1.setAttribute('font-style', this.value);
+    s2.setAttribute('font-style', this.value);
+  };
+}
 
 // update font weight
 
 $('fontweight1')
-    .onchange = function() { s1.setAttribute('font-weight', this.value); };
+    .oninput = function() { s1.setAttribute('font-weight', this.value); };
 
 $('fontweight2')
-    .onchange = function() { s2.setAttribute('font-weight', this.value); };
+    .oninput = function() { s2.setAttribute('font-weight', this.value); };
 
 // upate font size
 
 $('size2')
-    .oninput = function() {
-  s2.setAttribute('font-size', this.value * 50 || 50);
-};
+    .oninput = function() { s2.setAttribute('font-size', this.value * 0.6); };
 
 // update varter spacing
 
 $('spacing2')
-    .oninput = function() {
-  s2.setAttribute('letter-spacing', this.value || 0);
-};
+    .oninput = function() { s2.setAttribute('letter-spacing', this.value); };
 
 // update opacity
 
 $('opacity2')
     .oninput = function() {
-  s2.setAttribute('fill-opacity', this.value || 0.7);
+  s2.setAttribute('fill-opacity', this.value * 0.01);
 };
 
 // load webfonts
@@ -98,6 +96,6 @@ $('webfont2')
 // toggle baseline
 
 $('toggle-baseline')
-    .onclick = function() {
-  $('baseline').setAttribute('opacity', this.checked ? 1 : 0);
-}
+    .onchange = function() {
+  $('baseline').setAttribute('stroke-opacity', this.checked ? 0.7 : 0);
+};
