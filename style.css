@@ -1,9 +1,3 @@
-::-moz-selection {
-  background: rgba(0, 255, 0, 0.4);
-}
-::selection {
-  background: rgba(0, 255, 0, 0.4);
-}
 body {
   margin: 0;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
@@ -16,6 +10,7 @@ body {
 }
 #writepad {
   z-index: -1;
+  transition: .2s;
 }
 #input {
   color: transparent;
@@ -33,40 +28,24 @@ body {
   left: 0;
   right: 0;
   top: 75vh;
-  padding-bottom: 10vh;
-  background: #f8f8f8;
+  padding-bottom: 8vh;
   z-index: 1;
 }
 #svg {
   height: 100%;
   overflow: visible;
 }
-#baseline {
+#baseline, #sample1 {
   stroke-width: 1px;
+  transition: .2s;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
-  #baseline {
+  #baseline, #sample1 {
     stroke-width: 0.5px;
   }
 }
 input.candidate:focus {
   border: 0;
-}
-.color-light {
-  background: white;
-  color: black;
-}
-.color-sepia {
-  background: #f8f2e3;
-  color: #262523;
-}
-.color-storm {
-  background: #3c3c3c;
-  color: #a0a0a0;
-}
-.color-dark {
-  background: #111111;
-  color: #999999
 }
 .container {
   max-width: 960px;
@@ -78,18 +57,12 @@ input.candidate:focus {
   bottom: 5vmin;
   right: 5vmin;
 }
-.flt a {
-  margin: 0 5px;
-}
 .info {
   margin-bottom: 0;
 }
 .info a {
   text-decoration: none;
   color: #5E5545;
-}
-.color-storm a, .color-dark a {
-  color: #f8b500;
 }
 .info h1 {
   font-family: 'Teko', sans-serif;

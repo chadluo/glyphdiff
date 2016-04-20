@@ -12,17 +12,17 @@
 </head>
 
 <body>
-  <div id="writepad" class="color-light">
+  <div id="writepad" class="mdl-color--grey-50 mdl-color-text--grey-900">
     <svg id="comparepad" width="100%" height="100%" viewbox="0 0 100 100">
-      <line id="baseline" x1="-40" y1="70" x2="140" y2="70" stroke="currentColor" vector-effect="non-scaling-stroke" />
-      <text id="sample1" x="50" y="70" font-size="60" text-anchor="middle" fill="currentColor"></text>
-      <text id="sample2" x="50" y="70" font-size="60" text-anchor="middle"></text>
+      <line id="baseline" x1="-40" y1="70" x2="140" y2="70" stroke="currentColor" vector-effect="non-scaling-stroke" class="mdl-animation--default" />
+      <text id="sample1" x="50" y="70" font-size="60" text-anchor="middle" font-family="Tsukushi A Round Gothic" stroke="currentColor" fill="none"></text>
+      <text id="sample2" x="50" y="70" font-size="60" text-anchor="middle" font-family="Tsukushi B Round Gothic" fill="green" fill-opacity=".7"></text>
     </svg>
   </div>
 
   <input type="text" id="input" value="いろは">
 
-  <div class="main">
+  <div class="main mdl-color--grey-100">
     <div class="container">
       <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 
@@ -37,7 +37,7 @@
             <div class="mdl-cell mdl-cell--6-col mdl-grid">
               <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
                 <input id="webfont1" class="mdl-textfield__input" type="text">
-                <label class="mdl-textfield__label" for="webfont1">webfont link 1 (only &lt;link&gt; supported)</label>
+                <label class="mdl-textfield__label" for="webfont1">webfont link 1 (&lt;link&gt;)</label>
               </div>
               <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
                 <input id="fontfamily1" class="mdl-textfield__input" type="text">
@@ -51,7 +51,7 @@
             <div class="mdl-cell mdl-cell--6-col mdl-grid">
               <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
                 <input id="webfont2" class="mdl-textfield__input" type="text">
-                <label class="mdl-textfield__label" for="webfont2">webfont link 2 (only &lt;link&gt; supported)</label>
+                <label class="mdl-textfield__label" for="webfont2">webfont link 2 (&lt;link&gt;)</label>
               </div>
               <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
                 <input id="fontfamily2" class="mdl-textfield__input" type="text">
@@ -99,7 +99,7 @@
                 <label class="mdl-textfield__label" for="color2">color (green/#008000)</label>
               </div>
               <div class="mdl-cell mdl-cell--6-col v-center">
-                <input class="mdl-slider mdl-js-slider " id="opacity2" type="range" min="0" max="100" value="70">
+                <input class="mdl-slider mdl-js-slider " id="opacity2" type="range" min="0" max="100" value="80">
                 <span for="opacity2" class="mdl-tooltip" id="opacity2-tooltip">Opacity: 70</span>
               </div>
               <div class="mdl-cell mdl-cell--6-col v-center">
@@ -123,12 +123,9 @@
         </div>
       </div>
 
-      <div class="flt">
-        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab color-light" id="select-light"></a>
-        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab color-sepia" id="select-sepia"></a>
-        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab color-storm" id="select-storm"></a>
-        <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab color-dark" id="select-dark"></a>
-      </div>
+    </div>
+    <div class="flt">
+      <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-color--grey-900" id="color-select"></a>
     </div>
   </div>
   <script src="app.js"></script>

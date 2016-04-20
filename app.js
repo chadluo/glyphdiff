@@ -10,14 +10,10 @@ function $(x) {
 
 // init
 
-var s1 = $('sample1'),
-  s2 = $('sample2');
+var s1 = $('sample1');
+var s2 = $('sample2');
 s1.textContent = s2.textContent = $('input').value;
-s1.setAttribute('font-family', 'Tsukushi A Round Gothic');
 $('input').style.fontFamily = 'Tsukushi A Round Gothic';
-s2.setAttribute('font-family', 'Tsukushi B Round Gothic');
-s2.setAttribute('fill', 'green');
-s2.setAttribute('fill-opacity', '.7');
 
 // update sample content
 
@@ -37,28 +33,31 @@ $('fontfamily2')
     s2.setAttribute('font-family', this.value || 'Tsukushi B Round Gothic');
   };
 
-// update font color
+// update font/background color
+{
+  var fabClass = 'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect ';
+  var isLightColor = true;
 
-function updatePageColor(buttonID, bodyClass) {
-  $(buttonID).onclick = function () { $('writepad').className = bodyClass; };
+  $('color-select').onclick = function () {
+    isLightColor = !isLightColor;
+    $('writepad').className = isLightColor ? 'mdl-color--grey-50 mdl-color-text--grey-900' : 'mdl-color--grey-900 mdl-color-text--grey-400';
+    this.className = fabClass + (!isLightColor ? 'mdl-color--grey-50' : 'mdl-color--grey-900');
+  };
+
 }
-
-updatePageColor('select-light', 'color-light');
-updatePageColor('select-sepia', 'color-sepia');
-updatePageColor('select-storm', 'color-storm');
-updatePageColor('select-dark', 'color-dark');
 
 $('color2')
   .oninput = function () { s2.setAttribute('fill', this.value || 'green'); };
 
 // update slant
-
-var slantOptions = document.getElementsByName('slant');
-for (var i = 0; i < slantOptions.length; i++) {
-  slantOptions[i].onclick = function () {
-    s1.setAttribute('font-style', this.value);
-    s2.setAttribute('font-style', this.value);
-  };
+{
+  var slantOptions = document.getElementsByName('slant');
+  for (var i = 0; i < slantOptions.length; i++) {
+    slantOptions[i].onclick = function () {
+      s1.setAttribute('font-style', this.value);
+      s2.setAttribute('font-style', this.value);
+    };
+  }
 }
 
 // update font weight
@@ -100,15 +99,15 @@ $('opacity2')
   };
 
 // load webfonts
+{
+  var h = document.head.innerHTML;
 
-var h = document.head.innerHTML;
+  $('webfont1')
+    .oninput = function () { document.head.innerHTML = h + this.value; };
 
-$('webfont1')
-  .oninput = function () { document.head.innerHTML = h + this.value; };
-
-$('webfont2')
-  .oninput = function () { document.head.innerHTML = h + this.value; };
-
+  $('webfont2')
+    .oninput = function () { document.head.innerHTML = h + this.value; };
+}
 // toggle baseline
 
 $('toggle-baseline')
