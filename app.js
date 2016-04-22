@@ -93,6 +93,13 @@ $('color2').oninput = function () {
   $('indicator2').setAttribute('fill', this.value || 'green');
 };
 
+// update opacity
+
+$('opacity2').oninput = function () {
+  s2.setAttribute('fill-opacity', this.value * 0.01);
+  $('opacity2-tooltip').textContent = 'Opacity: ' + this.value;
+};
+
 // upate font size
 
 $('size2').oninput = function () {
@@ -107,12 +114,11 @@ $('spacing2').oninput = function () {
   $('spacing2-tooltip').textContent = 'Letter spacing: ' + this.value;
 };
 
-// update opacity
-
-$('opacity2').oninput = function () {
-  s2.setAttribute('fill-opacity', this.value * 0.01);
-  $('opacity2-tooltip').textContent = 'Opacity: ' + this.value;
-};
+// update sample x-translatering
+$('translate2').oninput = function () {
+  s2.setAttribute('transform', 'translate(' + this.value + ',0)');
+  $('translate2-tooltip').textContent = 'Translate-x: ' + this.value;
+}
 
 // change font1/background color
 {
