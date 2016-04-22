@@ -96,7 +96,7 @@ $('color2').oninput = function () {
 // upate font size
 
 $('size2').oninput = function () {
-  s2.setAttribute('font-size', this.value * 0.6);
+  s2.setAttribute('font-size', this.value * 0.45 + 'vh');
   $('size2-tooltip').textContent = 'Relative size: ' + Math.round(this.value * 100) / 10000;
 };
 
