@@ -19,6 +19,13 @@ $('input').style.fontFamily = 'Tsukushi A Round Gothic';
 
 $('input').oninput = function () { s1.textContent = s2.textContent = this.value; };
 
+// load webfonts
+{
+  var h = document.head.innerHTML;
+  $('webfont1').oninput = function () { document.head.innerHTML = h + this.value; };
+  $('webfont2').oninput = function () { document.head.innerHTML = h + this.value; };
+}
+
 // update font family
 
 function getStyle(obj, property) {
@@ -62,25 +69,6 @@ $('fontweight2').oninput = function () {
   updateLabel('indicator-fontfamily2', s2, 'Tsukushi B Round Gothic');
 };
 
-// update font/background color
-{
-  var fabClass = 'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect ';
-  var isLightColor = true;
-
-  $('color-select').onclick = function () {
-    isLightColor = !isLightColor;
-    $('writepad').className = isLightColor ?
-      'mdl-color--grey-50 mdl-color-text--grey-900' : 'mdl-color--grey-900 mdl-color-text--grey-400';
-    this.className = fabClass + (!isLightColor ? 'mdl-color--grey-50' : 'mdl-color--grey-900');
-  };
-
-}
-
-$('color2').oninput = function () {
-  s2.setAttribute('fill', this.value || 'green');
-  $('indicator2').setAttribute('fill', this.value || 'green');
-};
-
 // update slant
 {
   var slantOptions = document.getElementsByName('slant');
@@ -91,6 +79,19 @@ $('color2').oninput = function () {
     };
   }
 }
+
+// toggle baseline
+
+$('toggle-baseline').onchange = function () {
+  $('baseline').setAttribute('stroke-opacity', this.checked ? 0.7 : 0);
+};
+
+// change font2 color
+
+$('color2').oninput = function () {
+  s2.setAttribute('fill', this.value || 'green');
+  $('indicator2').setAttribute('fill', this.value || 'green');
+};
 
 // upate font size
 
@@ -113,15 +114,15 @@ $('opacity2').oninput = function () {
   $('opacity2-tooltip').textContent = 'Opacity: ' + this.value;
 };
 
-// load webfonts
+// change font1/background color
 {
-  var h = document.head.innerHTML;
-  $('webfont1').oninput = function () { document.head.innerHTML = h + this.value; };
-  $('webfont2').oninput = function () { document.head.innerHTML = h + this.value; };
+  var fabClass = 'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect ';
+  var isLightColor = true;
+
+  $('color-select').onclick = function () {
+    isLightColor = !isLightColor;
+    $('writepad').className = isLightColor ?
+      'mdl-color--grey-50 mdl-color-text--grey-900' : 'mdl-color--grey-900 mdl-color-text--grey-400';
+    this.className = fabClass + (!isLightColor ? 'mdl-color--grey-50' : 'mdl-color--grey-900');
+  };
 }
-
-// toggle baseline
-
-$('toggle-baseline').onchange = function () {
-  $('baseline').setAttribute('stroke-opacity', this.checked ? 0.7 : 0);
-};
