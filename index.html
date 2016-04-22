@@ -13,10 +13,20 @@
 
 <body>
   <div id="writepad" class="mdl-color--grey-50 mdl-color-text--grey-900">
-    <svg id="comparepad" width="100%" height="100%" viewbox="0 0 100 100">
-      <line id="baseline" x1="-40" y1="70" x2="140" y2="70" stroke="currentColor" vector-effect="non-scaling-stroke" class="mdl-animation--default" />
-      <text id="sample1" x="50" y="70" font-size="60" text-anchor="middle" font-family="Tsukushi A Round Gothic" stroke="currentColor" fill="none"></text>
-      <text id="sample2" x="50" y="70" font-size="60" text-anchor="middle" font-family="Tsukushi B Round Gothic" fill="green" fill-opacity=".7"></text>
+    <svg id="comparepad" width="100%" height="100%">
+      <line id="baseline" x1="10%" y1="70%" x2="90%" y2="70%" stroke="currentColor" vector-effect="non-scaling-stroke" class="mdl-animation--default" />
+      <text id="sample2" x="50%" y="70%" font-size="45vh" text-anchor="middle" font-family="Tsukushi B Round Gothic" fill="green" fill-opacity=".7"></text>
+      <text id="sample1" x="50%" y="70%" font-size="45vh" text-anchor="middle" font-family="Tsukushi A Round Gothic" stroke="currentColor" fill="none"></text>
+      <g x="0" y="0">
+        <text x="48%" y="90%" text-anchor="end">
+          <tspan id="indicator1" stroke="currentColor" fill="none">&#9724;</tspan>
+          <tspan id="indicator-fontfamily1" class="currColor">Tsukushi A Round Gothic - 400</tspan>
+        </text>
+        <text x="52%" y="90%">
+          <tspan id="indicator2" fill="green">&#9724;</tspan>
+          <tspan id="indicator-fontfamily2" class="currColor">Tsukushi B Round Gothic - 400</tspan>
+        </text>
+      </g>
     </svg>
   </div>
 
@@ -87,9 +97,9 @@
                 </label>
               </div>
               <div class="mdl-cell mdl-cell--12-col v-center">
-                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="toggle-baseline">
-                  <input type="checkbox" id="toggle-baseline" class="mdl-switch__input" checked>
-                  <span class="mdl-switch__label">Baseline</span>
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="toggle-baseline">
+                  <input type="checkbox" id="toggle-baseline" class="mdl-checkbox__input" checked>
+                  <span class="mdl-checkbox__label">Baseline</span>
                 </label>
               </div>
             </div>

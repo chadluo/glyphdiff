@@ -12,6 +12,9 @@ body {
   z-index: -1;
   transition: .2s;
 }
+.currColor {
+  fill: currentColor;
+}
 #input {
   color: transparent;
   background: transparent;
@@ -22,6 +25,12 @@ body {
 }
 #input:focus {
   outline: none;
+}
+#input::selection {
+  background: rgba(179, 212, 252, 0.7);
+}
+#input::-moz-selection {
+  background: rgba(179, 212, 252, 0.7);
 }
 .main {
   position: absolute;
@@ -35,12 +44,15 @@ body {
   height: 100%;
   overflow: visible;
 }
-#baseline, #sample1 {
+#sample1 {
+  stroke-width: 2px;
+}
+#baseline {
   stroke-width: 1px;
   transition: .2s;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
-  #baseline, #sample1 {
+  #baseline {
     stroke-width: 0.5px;
   }
 }
