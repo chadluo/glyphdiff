@@ -107,7 +107,7 @@ $('size2').oninput = function () {
   $('size2-tooltip').textContent = 'Relative size: ' + Math.round(this.value * 100) / 10000;
 };
 
-// update varter spacing
+// update letter spacing
 
 $('spacing2').oninput = function () {
   s2.setAttribute('letter-spacing', this.value);
