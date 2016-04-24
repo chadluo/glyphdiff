@@ -46,25 +46,25 @@ function updateLabel(obj, target, defaultFont) {
 
 $('fontfamily1').oninput = function () {
   $('input').style.fontFamily = this.value || 'Tsukushi A Round Gothic';
-  s1.setAttribute('font-family', this.value || 'Tsukushi A Round Gothic');
+  s1.style.fontFamily = this.value || 'Tsukushi A Round Gothic';
   updateLabel('indicator-fontfamily1', s1, 'Tsukushi A Round Gothic');
 };
 
 $('fontfamily2').oninput = function () {
-  s2.setAttribute('font-family', this.value || 'Tsukushi B Round Gothic');
+  s2.style.fontFamily = this.value || 'Tsukushi B Round Gothic';
   updateLabel('indicator-fontfamily2', s2, 'Tsukushi B Round Gothic');
 };
 
 // update font weight
 
 $('fontweight1').oninput = function () {
-  s1.setAttribute('font-weight', this.value);
+  s1.style.fontWeight = this.value;
   $('fontweight1-tooltip').textContent = 'Weight: ' + this.value;
   updateLabel('indicator-fontfamily1', s1, 'Tsukushi A Round Gothic');
 };
 
 $('fontweight2').oninput = function () {
-  s2.setAttribute('font-weight', this.value);
+  s2.style.fontWeight = this.value;
   $('fontweight2-tooltip').textContent = 'Weight: ' + this.value;
   updateLabel('indicator-fontfamily2', s2, 'Tsukushi B Round Gothic');
 };
@@ -74,8 +74,8 @@ $('fontweight2').oninput = function () {
   var slantOptions = document.getElementsByName('slant');
   for (var i = 0; i < slantOptions.length; i++) {
     slantOptions[i].onclick = function () {
-      s1.setAttribute('font-style', this.value);
-      s2.setAttribute('font-style', this.value);
+      s1.style.fontStyle = this.value;
+      s2.style.fontStyle = this.value;
     };
   }
 }
@@ -89,35 +89,50 @@ $('toggle-baseline').onchange = function () {
 // change font2 color
 
 $('color2').oninput = function () {
-  s2.setAttribute('fill', this.value || 'green');
-  $('indicator2').setAttribute('fill', this.value || 'green');
+  s2.style.fill = this.value || 'green';
+  $('indicator2').style.fill = this.value || 'green';
 };
 
 // update opacity
 
 $('opacity2').oninput = function () {
-  s2.setAttribute('fill-opacity', this.value * 0.01);
+  s2.style.fillOpacity = this.value * 0.01;
   $('opacity2-tooltip').textContent = 'Opacity: ' + this.value;
 };
 
 // upate font size
 
 $('size2').oninput = function () {
-  s2.setAttribute('font-size', this.value * 0.45 + 'vh');
+  s2.style.fontSize = this.value * .45 + 'vh';
   $('size2-tooltip').textContent = 'Relative size: ' + Math.round(this.value * 100) / 10000;
 };
 
 // update letter spacing
 
 $('spacing2').oninput = function () {
-  s2.setAttribute('letter-spacing', this.value);
+  s2.setAttribute('letter-spacing', this.value + 'px');
   $('spacing2-tooltip').textContent = 'Letter spacing: ' + this.value;
 };
 
-// update sample x-translatering
-$('translate2').oninput = function () {
-  s2.setAttribute('transform', 'translate(' + this.value + ',0)');
-  $('translate2-tooltip').textContent = 'Translate-x: ' + this.value;
+// update sample translatering
+function t(x, y) {
+  s2.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+}
+
+{
+  var x = 0;
+  var y = 0;
+
+  $('translateX').oninput = function () {
+    x = this.value;
+    t(x, y);
+    $('translateX-tooltip').textContent = 'Translate-x: ' + this.value;
+  }
+  $('translateY').oninput = function () {
+    y = this.value;
+    t(x, y);
+    $('translateY-tooltip').textContent = 'Translate-y: ' + this.value;
+  }
 }
 
 // change font1/background color
