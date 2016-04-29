@@ -97,8 +97,11 @@ $('toggle-baseline').onchange = function () {
 
 $('toggle-darkmode').onchange = function () {
   $('writepad').className = this.checked
-    ? 'mdl-color--grey-900 mdl-color-text--grey-400'
-    : 'mdl-color--grey-50 mdl-color-text--grey-900';
+    ? 'mdl-color-text--grey-400'
+    : 'mdl-color-text--grey-900';
+  document.body.className = this.checked
+    ? 'mdl-color--grey-900'
+    : 'mdl-color--grey-50';
 };
 
 // change font2 color
