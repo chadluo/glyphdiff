@@ -12,24 +12,30 @@ function $(x) {
 
 var s1 = $('sample1');
 var s2 = $('sample2');
-s1.textContent = s2.textContent = $('input').value;
 $('input').style.fontFamily = 'Tsukushi A Round Gothic';
 
 // update sample content
 
-$('input').oninput = function () { s1.textContent = s2.textContent = this.value; };
+$('input').oninput = function () {
+  s1.textContent = s2.textContent = this.value;
+};
 
-// load webfonts
-{
-  var h = document.head.innerHTML;
-  $('webfont1').oninput = function () { document.head.innerHTML = h + this.value; };
-  $('webfont2').oninput = function () { document.head.innerHTML = h + this.value; };
-}
+// load external webfonts
 
-// update font family
+var h = document.head.innerHTML;
+$('webfont1').oninput = function () {
+  document.head.innerHTML = h + this.value;
+};
+$('webfont2').oninput = function () {
+  document.head.innerHTML = h + this.value;
+};
+
+// update font family and label
 
 function getStyle(obj, property) {
-  return window.getComputedStyle(obj, null).getPropertyValue(property);
+  return window
+    .getComputedStyle(obj, null)
+    .getPropertyValue(property);
 }
 
 function getFontFamily(obj, defaultValue) {
@@ -70,20 +76,29 @@ $('fontweight2').oninput = function () {
 };
 
 // update slant
-{
-  var slantOptions = document.getElementsByName('slant');
-  for (var i = 0; i < slantOptions.length; i++) {
-    slantOptions[i].onclick = function () {
-      s1.style.fontStyle = this.value;
-      s2.style.fontStyle = this.value;
-    };
-  }
+
+var slantOptions = document.getElementsByName('slant');
+for (var i = 0; i < slantOptions.length; i++) {
+  slantOptions[i].onclick = function () {
+    s1.style.fontStyle = this.value;
+    s2.style.fontStyle = this.value;
+  };
 }
 
 // toggle baseline
 
 $('toggle-baseline').onchange = function () {
-  $('baseline').setAttribute('stroke-opacity', this.checked ? 0.7 : 0);
+  $('baseline').setAttribute('stroke-opacity', this.checked
+    ? 0.7
+    : 0);
+};
+
+// toggle dark mode
+
+$('toggle-darkmode').onchange = function () {
+  $('writepad').className = this.checked
+    ? 'mdl-color--grey-900 mdl-color-text--grey-400'
+    : 'mdl-color--grey-50 mdl-color-text--grey-900';
 };
 
 // change font2 color
@@ -114,36 +129,21 @@ $('spacing2').oninput = function () {
   $('spacing2-tooltip').textContent = 'Letter spacing: ' + this.value;
 };
 
-// update sample translatering
+// translation
 function t(x, y) {
   s2.setAttribute('transform', 'translate(' + x + ',' + y + ')');
 }
 
-{
-  var x = 0;
-  var y = 0;
+var x = 0;
+var y = 0;
 
-  $('translateX').oninput = function () {
-    x = this.value;
-    t(x, y);
-    $('translateX-tooltip').textContent = 'Translate-x: ' + this.value;
-  }
-  $('translateY').oninput = function () {
-    y = this.value;
-    t(x, y);
-    $('translateY-tooltip').textContent = 'Translate-y: ' + this.value;
-  }
+$('translateX').oninput = function () {
+  x = this.value;
+  t(x, y);
+  $('translateX-tooltip').textContent = 'Translate-x: ' + this.value;
 }
-
-// change font1/background color
-{
-  var fabClass = 'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect ';
-  var isLightColor = true;
-
-  $('color-select').onclick = function () {
-    isLightColor = !isLightColor;
-    $('writepad').className = isLightColor ?
-      'mdl-color--grey-50 mdl-color-text--grey-900' : 'mdl-color--grey-900 mdl-color-text--grey-400';
-    this.className = fabClass + (!isLightColor ? 'mdl-color--grey-50' : 'mdl-color--grey-900');
-  };
+$('translateY').oninput = function () {
+  y = this.value;
+  t(x, y);
+  $('translateY-tooltip').textContent = 'Translate-y: ' + this.value;
 }
