@@ -2,35 +2,35 @@
 /*jslint node:true*/
 'use strict';
 
-/// shorthands
+// id selector shorthand
 
 function $(x) {
   return document.getElementById(x);
-} // id selector
+}
 
 // init
 
 var s1 = $('sample1');
 var s2 = $('sample2');
-$('input').style.fontFamily = 'Tsukushi A Round Gothic';
+$('gd-input').style.fontFamily = 'Tsukushi A Round Gothic';
 
-// update sample content
+// sample content
 
-$('input').oninput = function () {
+$('gd-input').oninput = function () {
   s1.textContent = s2.textContent = this.value;
 };
 
 // load external webfonts
 
-var h = document.head.innerHTML;
-$('webfont1').oninput = function () {
-  document.head.innerHTML = h + this.value;
+var initialHead = document.head.innerHTML;
+$('gd-webfont1').oninput = function () {
+  document.head.innerHTML = initialHead + this.value;
 };
-$('webfont2').oninput = function () {
-  document.head.innerHTML = h + this.value;
+$('gd-webfont2').oninput = function () {
+  document.head.innerHTML = initialHead + this.value;
 };
 
-// update font family and label
+// font family and label
 
 function getStyle(obj, property) {
   return window
@@ -50,32 +50,32 @@ function updateLabel(obj, target, defaultFont) {
   $(obj).textContent = getFontFamily(target, defaultFont) + ' - ' + getFontWeight(target);
 }
 
-$('fontfamily1').oninput = function () {
-  $('input').style.fontFamily = this.value || 'Tsukushi A Round Gothic';
+$('gd-fontfamily1').oninput = function () {
+  $('gd-input').style.fontFamily = this.value || 'Tsukushi A Round Gothic';
   s1.style.fontFamily = this.value || 'Tsukushi A Round Gothic';
-  updateLabel('indicator-fontfamily1', s1, 'Tsukushi A Round Gothic');
+  updateLabel('label-font1', s1, 'Tsukushi A Round Gothic');
 };
 
-$('fontfamily2').oninput = function () {
+$('gd-fontfamily2').oninput = function () {
   s2.style.fontFamily = this.value || 'Tsukushi B Round Gothic';
-  updateLabel('indicator-fontfamily2', s2, 'Tsukushi B Round Gothic');
+  updateLabel('label-font2', s2, 'Tsukushi B Round Gothic');
 };
 
-// update font weight
+// font weight
 
-$('fontweight1').oninput = function () {
+$('gd-fontweight1').oninput = function () {
   s1.style.fontWeight = this.value;
   $('fontweight1-tooltip').textContent = 'Weight: ' + this.value;
-  updateLabel('indicator-fontfamily1', s1, 'Tsukushi A Round Gothic');
+  updateLabel('label-font1', s1, 'Tsukushi A Round Gothic');
 };
 
-$('fontweight2').oninput = function () {
+$('gd-fontweight2').oninput = function () {
   s2.style.fontWeight = this.value;
   $('fontweight2-tooltip').textContent = 'Weight: ' + this.value;
-  updateLabel('indicator-fontfamily2', s2, 'Tsukushi B Round Gothic');
+  updateLabel('label-font2', s2, 'Tsukushi B Round Gothic');
 };
 
-// update slant
+// slantness
 
 var slantOptions = document.getElementsByName('slant');
 for (var i = 0; i < slantOptions.length; i++) {
@@ -87,7 +87,7 @@ for (var i = 0; i < slantOptions.length; i++) {
 
 // toggle baseline
 
-$('toggle-baseline').onchange = function () {
+$('gd-baseline').onchange = function () {
   $('baseline').setAttribute('stroke-opacity', this.checked
     ? 0.7
     : 0);
@@ -95,7 +95,7 @@ $('toggle-baseline').onchange = function () {
 
 // toggle dark mode
 
-$('toggle-darkmode').onchange = function () {
+$('gd-darkmode').onchange = function () {
   $('writepad').className = this.checked
     ? 'mdl-color-text--grey-400'
     : 'mdl-color-text--grey-900';
@@ -104,35 +104,36 @@ $('toggle-darkmode').onchange = function () {
     : 'mdl-color--grey-50';
 };
 
-// change font2 color
+// sample2 color
 
-$('color2').oninput = function () {
+$('gd-color2').oninput = function () {
   s2.style.fill = this.value || 'green';
-  $('indicator2').style.fill = this.value || 'green';
+  $('label-color2').style.fill = this.value || 'green';
 };
 
-// update opacity
+// sample2 opacity
 
-$('opacity2').oninput = function () {
+$('gd-opacity2').oninput = function () {
   s2.style.fillOpacity = this.value * 0.01;
   $('opacity2-tooltip').textContent = 'Opacity: ' + this.value;
 };
 
 // upate font size
 
-$('size2').oninput = function () {
+$('gd-size2').oninput = function () {
   s2.style.fontSize = this.value * .45 + 'vh';
   $('size2-tooltip').textContent = 'Relative size: ' + Math.round(this.value * 100) / 10000;
 };
 
-// update letter spacing
+// sample2 letter spacing
 
-$('spacing2').oninput = function () {
+$('gd-spacing2').oninput = function () {
   s2.setAttribute('letter-spacing', this.value + 'px');
   $('spacing2-tooltip').textContent = 'Letter spacing: ' + this.value;
 };
 
-// translation
+// sample2 translation
+
 function t(x, y) {
   s2.setAttribute('transform', 'translate(' + x + ',' + y + ')');
 }
@@ -140,12 +141,12 @@ function t(x, y) {
 var x = 0;
 var y = 0;
 
-$('translateX').oninput = function () {
+$('gd-translateX').oninput = function () {
   x = this.value;
   t(x, y);
   $('translateX-tooltip').textContent = 'Translate-x: ' + this.value;
 }
-$('translateY').oninput = function () {
+$('gd-translateY').oninput = function () {
   y = this.value;
   t(x, y);
   $('translateY-tooltip').textContent = 'Translate-y: ' + this.value;

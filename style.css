@@ -4,8 +4,9 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: auto;
+  transition: .2s;
 }
-#writepad, #input {
+#writepad, #gd-input {
   position: fixed;
   top: 0;
   width: 100%;
@@ -13,13 +14,12 @@ html, body {
 }
 #writepad {
   z-index: -1;
-  transition: .2s;
 }
 #comparepad {
   width: 100%;
   height: 100%;
 }
-#input {
+#gd-input {
   color: transparent;
   background: transparent;
   border: none;
@@ -27,13 +27,13 @@ html, body {
   text-align: center;
   z-index: 0;
 }
-#input:focus {
+#gd-input:focus {
   outline: none;
 }
-#input::selection {
+#gd-input::selection {
   background: rgba(179, 212, 252, 0.7);
 }
-#input::-moz-selection {
+#gd-input::-moz-selection {
   background: rgba(179, 212, 252, 0.7);
 }
 #sample1, #sample2 {
@@ -71,12 +71,6 @@ html, body {
 .container {
   max-width: 960px;
   margin: auto;
-}
-.flt {
-  position: fixed;
-  z-index: 2;
-  bottom: 5vmin;
-  right: 5vmin;
 }
 .info {
   margin-bottom: 0;
