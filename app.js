@@ -10,10 +10,6 @@ function $(x) {
 
 // init
 
-var s1 = $('sample1');
-var s2 = $('sample2');
-$('gd-input').style.fontFamily = 'Tsukushi A Round Gothic';
-
 // sample content
 
 $('gd-input').oninput = function () {
@@ -85,7 +81,7 @@ for (var i = 0; i < slantOptions.length; i++) {
   };
 }
 
-// toggle baseline
+// baseline
 
 $('gd-baseline').onchange = function () {
   $('baseline').setAttribute('stroke-opacity', this.checked
@@ -93,7 +89,7 @@ $('gd-baseline').onchange = function () {
     : 0);
 };
 
-// toggle dark mode
+// dark mode
 
 $('gd-darkmode').onchange = function () {
   $('writepad').className = this.checked
@@ -118,7 +114,7 @@ $('gd-opacity2').oninput = function () {
   $('opacity2-tooltip').textContent = 'Opacity: ' + this.value;
 };
 
-// upate font size
+// sample2 size
 
 $('gd-size2').oninput = function () {
   s2.style.fontSize = this.value * .45 + 'vh';

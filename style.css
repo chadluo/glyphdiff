@@ -25,6 +25,7 @@ html, body {
   border: none;
   font-size: 45vh;
   text-align: center;
+  font-family: 'Tsukushi A Round Gothic';
   z-index: 0;
 }
 #gd-input:focus {
