@@ -44,12 +44,6 @@ html, body {
 #sample1 {
   stroke-width: 2px;
   fill: none;
-  font-family: 'Tsukushi A Round Gothic';
-}
-#sample2 {
-  fill: green;
-  fill-opacity: .7;
-  font-family: 'Tsukushi B Round Gothic';
 }
 #baseline {
   vector-effect: non-scaling-stroke;
@@ -105,4 +99,5 @@ html, body {
 }
 .v-center {
   padding-top: 20px;
+  padding-bottom: 20px;
 }

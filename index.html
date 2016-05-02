@@ -20,11 +20,11 @@
       <g x="0" y="0">
         <text x="48%" y="95%" text-anchor="end">
           <tspan id="label-color1" stroke="currentColor" fill="none">&#9724;</tspan>
-          <tspan id="label-font1" class="fillCC">Tsukushi A Round Gothic - 400</tspan>
+          <tspan id="label-font1" class="fillCC"></tspan>
         </text>
         <text x="52%" y="95%">
           <tspan id="label-color2" fill="green">&#9724;</tspan>
-          <tspan id="label-font2" class="fillCC">Tsukushi B Round Gothic - 400</tspan>
+          <tspan id="label-font2" class="fillCC"></tspan>
         </text>
       </g>
     </svg>
@@ -79,7 +79,7 @@
           <div class="mdl-cell mdl-cell--4-col mdl-grid">
             <div class="mdl-cell mdl-cell--4-col v-center">
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-normal">
-                <input class="mdl-radio__button" id="gd-slant-normal" name="slant" type="radio" value="normal" checked>
+                <input class="mdl-radio__button" id="gd-slant-normal" name="slant" type="radio" value="normal">
                 <span class="mdl-radio__label">Normal</span>
               </label>
             </div>
@@ -97,7 +97,7 @@
             </div>
             <div class="mdl-cell mdl-cell--6-col v-center">
               <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gd-baseline">
-                <input type="checkbox" id="gd-baseline" class="mdl-checkbox__input" checked>
+                <input type="checkbox" id="gd-baseline" class="mdl-checkbox__input">
                 <span class="mdl-checkbox__label">Baseline</span>
               </label>
             </div>
@@ -108,28 +108,30 @@
               </label>
             </div>
           </div>
-          <div class="mdl-cell mdl-cell--8-col mdl-grid">
-            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--4-col">
+          <div class="mdl-cell mdl-cell--5-col mdl-grid">
+            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
               <input id="gd-color2" class="mdl-textfield__input" type="text">
               <label class="mdl-textfield__label" for="gd-color2">color (green/#008000)</label>
             </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <input class="mdl-slider mdl-js-slider " id="gd-opacity2" type="range" min="0" max="100" value="80">
+            <div class="mdl-cell mdl-cell--6-col v-center">
+              <input class="mdl-slider mdl-js-slider " id="gd-opacity2" type="range" min="0" max="1" step="0.01">
               <span for="gd-opacity2" class="mdl-tooltip" id="opacity2-tooltip">Opacity: 70</span>
             </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
+            <div class="mdl-cell mdl-cell--6-col v-center">
+              <input class="mdl-slider mdl-js-slider" id="gd-size2" type="range" min="0.8" max="1.2" step="0.01">
+              <span for="gd-size2" class="mdl-tooltip" id="size2-tooltip">Relative size: 1.0</span>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col v-center">
+              <input class="mdl-slider mdl-js-slider" id="gd-spacing2" type="range" min="-0.1" max="0.1" value="0" step="0.01">
+              <span for="gd-spacing2" class="mdl-tooltip" id="spacing2-tooltip">Letter spacing: 0</span>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--3-col mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col v-center">
               <input class="mdl-slider mdl-js-slider" id="gd-translateX" type="range" min="-30" max="30" value="0">
               <span for="gd-translateX" class="mdl-tooltip" id="translateX-tooltip">Translate-x: 0</span>
             </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <input class="mdl-slider mdl-js-slider" id="gd-size2" type="range" min="80" max="120" value="100">
-              <span for="gd-size2" class="mdl-tooltip" id="size2-tooltip">Relative size: 1.0</span>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <input class="mdl-slider mdl-js-slider" id="gd-spacing2" type="range" min="-30" max="30" value="0">
-              <span for="gd-spacing2" class="mdl-tooltip" id="spacing2-tooltip">Letter spacing: 0</span>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
+            <div class="mdl-cell mdl-cell--12-col v-center">
               <input class="mdl-slider mdl-js-slider" id="gd-translateY" type="range" min="-30" max="30" value="0">
               <span for="gd-translateY" class="mdl-tooltip" id="translateY-tooltip">Translate-y: 0</span>
             </div>
@@ -148,7 +150,7 @@
     </div>
   </div>
   <script src="app.js"></script>
-  <script>
+  <!-- <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function() {
@@ -162,7 +164,7 @@
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-76808046-2', 'auto');
     ga('send', 'pageview');
-  </script>
+  </script> -->
 </body>
 
 </html>
