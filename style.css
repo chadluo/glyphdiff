@@ -87,6 +87,12 @@ html, body {
 .info .addr {
   margin-top: 2em;
 }
+.flt {
+  position: fixed;
+  bottom: 4vmin;
+  right: 4vmin;
+  z-index: 2;
+}
 
 /* helpers */
 
