@@ -200,11 +200,11 @@ $('gd-translateY').oninput = function () {
 
 // share config snackbar
 
-$('gd-share').onclick = function () {
-  $('share-link')
-    .MaterialSnackbar
-    .showSnackbar({message: 'configuration copied.'});
-}
+// $('gd-share').onclick = function () {
+//   $('share-link')
+//     .MaterialSnackbar
+//     .showSnackbar({message: 'configuration copied.'});
+// }
 
 // helpers
 
