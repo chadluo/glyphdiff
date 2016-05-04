@@ -1,4 +1,4 @@
-# glyphdiff &middot; <http://yuki.rocks/glyphdiff/>
+# [glyphdiff](yuki.rocks/glyphdiff/?text=glyphΔ&fontfamily1=%27Roboto%20Slab%27&fontfamily2=Bitter&webfont1=<link%20href%3D%27https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BSlab%7CBitter%26subset%3Dlatin%2Cgreek%27%20rel%3D%27stylesheet%27%20type%3D%27text%2Fcss%27>&baseline=0&color=teal&opacity=0.7&size=1&tracking=0)
 
 Compare fonts glyphwise.
 
@@ -7,6 +7,7 @@ Choose your sample and the fonts you want to compare (including CSS-based webfon
 ## Known Issues:
 
 - Firefox [does not support SVG letter spacing](https://bugzilla.mozilla.org/show_bug.cgi?id=371787). Won't fix.
+- Safari does not support copy to clipboard by JS. Won't fix.
 
 **License: Lemonade**
 
