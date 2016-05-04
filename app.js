@@ -108,33 +108,24 @@ for (var i = 0; i < slantOptions.length; i++) {
 
 // baseline
 
-$('gd-baseline').checked = conf.baseline;
-if (!$('gd-baseline').checked) {
-  $('baseline').setAttribute('stroke-opacity', 0);
-}
+$('gd-baseline').checked = conf.baseline === '1';
+$('baseline').setAttribute('stroke-opacity', this.checked ? 0.7 : 0);
 
 $('gd-baseline').onchange = function () {
-  $('baseline').setAttribute('stroke-opacity', this.checked
-    ? 0.7
-    : 0);
+  $('baseline').setAttribute('stroke-opacity', this.checked ? 0.7 : 0);
 };
 
 // dark mode
 
-$('gd-darkmode').checked = conf.dark;
+$('gd-darkmode').checked = conf.dark === '1';
 if ($('gd-darkmode').checked) {
   $('writepad').className = 'mdl-color-text--grey-400';
   document.body.className = 'mdl-color--grey-900';
 }
 
 $('gd-darkmode').onchange = function () {
-  $('writepad').className = this.checked
-    ? 'mdl-color-text--grey-400'
-    : 'mdl-color-text--grey-900';
-  document.body.className = this.checked
-    ? 'mdl-color--grey-900'
-    : 'mdl-color--grey-50 ';
-
+  $('writepad').className = this.checked ? 'mdl-color-text--grey-400' : 'mdl-color-text--grey-900';
+  document.body.className = this.checked ? 'mdl-color--grey-900' : 'mdl-color--grey-50 ';
 };
 
 // color
@@ -201,9 +192,7 @@ $('gd-translateY').oninput = function () {
 // share config snackbar
 
 // $('gd-share').onclick = function () {
-//   $('share-link')
-//     .MaterialSnackbar
-//     .showSnackbar({message: 'configuration copied.'});
+//   $('share-link').MaterialSnackbar.showSnackbar({ message: 'configuration copied.' });
 // }
 
 // helpers
@@ -219,24 +208,23 @@ function $(x) {
 function param(name) {
   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
     results = regex.exec(window.location.href);
-  return (results && results[2])
-    ? decodeURIComponent(results[2].replace(/\+/g, " "))
-    : '';
+  return (results && results[2]) ? decodeURIComponent(results[2].replace(/\+/g, " ")) : '';
 }
 
 // labels
 
 function getStyle(obj, property) {
-  return window
-    .getComputedStyle(obj, null)
-    .getPropertyValue(property);
+  return window.getComputedStyle(obj, null).getPropertyValue(property);
 }
+
 function getFontFamily(obj) {
   return getStyle(obj, 'font-family').replace(/['"]+/g, '');
 }
+
 function getFontWeight(obj) {
   return getStyle(obj, 'font-weight');
 }
+
 function updateLabel(obj, target) {
   $(obj).textContent = getFontFamily(target) + '-' + getFontWeight(target);
 }
