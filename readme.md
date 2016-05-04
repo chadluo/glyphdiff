@@ -1,4 +1,4 @@
-# [glyphdiff](yuki.rocks/glyphdiff/?text=glyphΔ&fontfamily1=%27Roboto%20Slab%27&fontfamily2=Bitter&webfont1=<link%20href%3D%27https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BSlab%7CBitter%26subset%3Dlatin%2Cgreek%27%20rel%3D%27stylesheet%27%20type%3D%27text%2Fcss%27>&baseline=0&color=teal&opacity=0.7&size=1&tracking=0)
+# [glyphdiff](http://yuki.rocks/glyphdiff/?text=glyphΔ&fontfamily1=%27Roboto%20Slab%27&fontfamily2=Bitter&webfont1=<link%20href%3D%27https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BSlab%7CBitter%26subset%3Dlatin%2Cgreek%27%20rel%3D%27stylesheet%27%20type%3D%27text%2Fcss%27>&baseline=0&color=teal&opacity=0.7&size=1&tracking=0)
 
 Compare fonts glyphwise.
 
