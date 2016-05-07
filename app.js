@@ -13,7 +13,7 @@ var def = {
   slant: 'normal',
   baseline: 1,
   darkmode: 0,
-  color: 'green',
+  color: '#008000',
   opacity: 0.7,
   size: 1.0,
   tracking: 0,
@@ -97,7 +97,7 @@ $('gd-webfont2').oninput = function () {
 // slantness
 
 var slantOptions = document.getElementsByName('slant');
-for (var i = 0; i < slantOptions.length; i++) {
+for (var i = 0; i < 3; i++) {
   var curr = slantOptions[i];
   if (curr.value == conf.slant) {
     curr.checked = true;
@@ -138,7 +138,7 @@ $('gd-darkmode').onchange = function () {
 // color
 
 s2.style.fill = $('label-color2').style.fill = conf.color;
-$('gd-color2').value = (conf.color == def.color ? '' : conf.color);
+$('gd-color2').value = conf.color;
 $('gd-color2').oninput = function () {
   s2.style.fill = $('label-color2').style.fill = conf.color = this.value || def.color;
 };
