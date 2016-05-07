@@ -211,7 +211,9 @@ $('gd-share').onclick = function () {
   try {
     document.execCommand("copy");
   } catch (e) {} finally {
-    $('share-link').MaterialSnackbar.showSnackbar({ message: 'configuration copied. (not for Safari, please copy manually)' });
+    $('share-link').MaterialSnackbar.showSnackbar({
+      message: 'configuration copied. (not for Safari, please copy manually)'
+    });
     document.body.removeChild(t);
   }
   history.pushState(null, null, newURL);
