@@ -2,9 +2,27 @@ html, body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   transition: .2s;
 }
+#parallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  perspective: 1px;
+  perspective-origin: 50% 37.5%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#parallax-container {
+  position: relative;
+  transform-style: preserve-3d;
+}
 #writepad {
   width: 100%;
   height: 75vh;
+  transform: translateZ(-1px) scale(2);
+  position: absolute;
+  top: 0;
 }
 #comparepad {
   width: 100%;
@@ -54,6 +72,9 @@ html, body {
 }
 .main {
   padding-bottom: 8vh;
+  position: absolute;
+  top: 75vh;
+  width: 100%;
 }
 .container {
   max-width: 960px;

@@ -12,151 +12,157 @@
 </head>
 
 <body class="mdl-color--grey-50">
-  <div id="writepad" class="mdl-color-text--grey-900">
-    <svg id="comparepad">
-      <line id="baseline" x1="10%" y1="70%" x2="90%" y2="70%" class="mdl-animation--default strokeCC" />
-      <text id="sample2" x="50%" y="70%"></text>
-      <text id="sample1" x="50%" y="70%" class="strokeCC"></text>
-      <text id="label1" x="48%" y="95%" text-anchor="end">
-        <tspan id="label-color1" stroke="currentColor" fill="none">&#9724;</tspan>
-        <tspan id="label-font1" class="fillCC"></tspan>
-      </text>
-      <text id="label2" x="52%" y="95%">
-        <tspan id="label-color2" fill="green">&#9724;</tspan>
-        <tspan id="label-font2" class="fillCC"></tspan>
-      </text>
-    </svg>
-    <input type="text" id="gd-input" value="いろは">
-  </div>
+  <div id="parallax">
+    <div id="prallax-continer">
 
-  <div class="main mdl-color--grey-100">
-    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect container">
-
-      <div class="mdl-tabs__tab-bar">
-        <a href="#panel-fonts" class="mdl-tabs__tab is-active">Fonts</a>
-        <a href="#panel-styles" class="mdl-tabs__tab">Styles</a>
-        <a href="#panel-about" class="mdl-tabs__tab">About</a>
+      <div id="writepad" class="mdl-color-text--grey-900">
+        <svg id="comparepad">
+          <line id="baseline" x1="10%" y1="70%" x2="90%" y2="70%" class="mdl-animation--default strokeCC" />
+          <text id="sample2" x="50%" y="70%"></text>
+          <text id="sample1" x="50%" y="70%" class="strokeCC"></text>
+          <text id="label1" x="48%" y="95%" text-anchor="end">
+            <tspan id="label-color1" stroke="currentColor" fill="none">&#9724;</tspan>
+            <tspan id="label-font1" class="fillCC"></tspan>
+          </text>
+          <text id="label2" x="52%" y="95%">
+            <tspan id="label-color2" fill="green">&#9724;</tspan>
+            <tspan id="label-font2" class="fillCC"></tspan>
+          </text>
+        </svg>
+        <input type="text" id="gd-input" value="いろは">
       </div>
 
-      <div class="mdl-tabs__panel is-active" id="panel-fonts">
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--6-col mdl-grid">
-            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-              <input id="gd-webfont1" class="mdl-textfield__input" type="text">
-              <label class="mdl-textfield__label" for="gd-webfont1">webfont link 1 (&lt;link&gt;)</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
-              <input id="gd-fontfamily1" class="mdl-textfield__input" type="text" list="preset-fonts">
-              <label class="mdl-textfield__label" for="gd-fontfamily1">font 1 (Tsukushi A Round Gothic)</label>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <input id="gd-fontweight1" class="mdl-slider mdl-js-slider" type="range" min="100" max="900" value="400" step="100">
-              <span id="fontweight1-tooltip" for="gd-fontweight1" class="mdl-tooltip"></span>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--6-col mdl-grid">
-            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-              <input id="gd-webfont2" class="mdl-textfield__input" type="text">
-              <label class="mdl-textfield__label" for="gd-webfont2">webfont link 2 (&lt;link&gt;)</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
-              <input id="gd-fontfamily2" class="mdl-textfield__input" type="text" list="preset-fonts">
-              <label class="mdl-textfield__label" for="gd-fontfamily2">font 2 (Tsukushi A Round Gothic)</label>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <input id="gd-fontweight2" class="mdl-slider mdl-js-slider" type="range" min="100" max="900" value="400" step="100">
-              <span id="fontweight2-tooltip" for="gd-fontweight2" class="mdl-tooltip"></span>
-            </div>
-          </div>
-        </div>
-        <datalist id="preset-fonts">
-          <option value="Arial" />
-          <option value="Avenir Next" />
-          <option value="Avenir" />
-          <option value="Courier New" />
-          <option value="Courier" />
-          <option value="Futura" />
-          <option value="Georgia" />
-          <option value="Gill Sans" />
-          <option value="Helvetica Neue" />
-          <option value="Helvetica" />
-          <option value="Impact" />
-          <option value="Optima" />
-          <option value="Palatino" />
-          <option value="Times New Roman" />
-          <option value="Verdana" />
-        </datalist>
-      </div>
+      <div class="main mdl-color--grey-100">
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect container">
 
-      <div class="mdl-tabs__panel" id="panel-styles">
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--4-col mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-normal">
-                <input class="mdl-radio__button" id="gd-slant-normal" name="slant" type="radio" value="normal">
-                <span class="mdl-radio__label">Normal</span>
-              </label>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-italic">
-                <input class="mdl-radio__button" id="gd-slant-italic" name="slant" type="radio" value="italic">
-                <span class="mdl-radio__label">Italic</span>
-              </label>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col v-center">
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-oblique">
-                <input class="mdl-radio__button" id="gd-slant-oblique" name="slant" type="radio" value="oblique">
-                <span class="mdl-radio__label">Oblique</span>
-              </label>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col v-center">
-              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gd-baseline">
-                <input type="checkbox" id="gd-baseline" class="mdl-checkbox__input">
-                <span class="mdl-checkbox__label">Baseline</span>
-              </label>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col v-center">
-              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gd-darkmode">
-                <input type="checkbox" id="gd-darkmode" class="mdl-checkbox__input">
-                <span class="mdl-checkbox__label">Dark mode</span>
-              </label>
-            </div>
+          <div class="mdl-tabs__tab-bar">
+            <a href="#panel-fonts" class="mdl-tabs__tab is-active">Fonts</a>
+            <a href="#panel-styles" class="mdl-tabs__tab">Styles</a>
+            <a href="#panel-about" class="mdl-tabs__tab">About</a>
           </div>
-          <div class="mdl-cell mdl-cell--5-col mdl-grid">
-            <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
-              <input id="gd-color2" class="mdl-textfield__input" type="color">
-            </div>
-            <div class="mdl-cell mdl-cell--6-col v-center">
-              <input class="mdl-slider mdl-js-slider " id="gd-opacity2" type="range" min="0" max="1" step="0.01">
-              <span for="gd-opacity2" class="mdl-tooltip" id="opacity2-tooltip">Opacity: 70</span>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col v-center">
-              <input class="mdl-slider mdl-js-slider" id="gd-size2" type="range" min="0.8" max="1.2" step="0.01">
-              <span for="gd-size2" class="mdl-tooltip" id="size2-tooltip">Relative size: 1.0</span>
-            </div>
-            <div class="mdl-cell mdl-cell--6-col v-center">
-              <input class="mdl-slider mdl-js-slider" id="gd-spacing2" type="range" min="-0.1" max="0.1" value="0" step="0.01">
-              <span for="gd-spacing2" class="mdl-tooltip" id="spacing2-tooltip"></span>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--3-col mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col v-center">
-              <input class="mdl-slider mdl-js-slider" id="gd-translateX" type="range" min="-30" max="30" value="0">
-              <span for="gd-translateX" class="mdl-tooltip" id="translateX-tooltip">Translate-x: 0</span>
-            </div>
-            <div class="mdl-cell mdl-cell--12-col v-center">
-              <input class="mdl-slider mdl-js-slider" id="gd-translateY" type="range" min="-30" max="30" value="0">
-              <span for="gd-translateY" class="mdl-tooltip" id="translateY-tooltip">Translate-y: 0</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="mdl-tabs__panel" id="panel-about">
-        <div class="info">
-          <h1>glyphdiff</h1>
-          <p>is a simple tool comparing the differences of two fonts on given glyphs.</p>
-          <p><a href="https://github.com/chadluo/glyphdiff">GitHub repo</a> &middot; <a href="/">made by chadluo</a></p>
+          <div class="mdl-tabs__panel is-active" id="panel-fonts">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--6-col mdl-grid">
+                <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+                  <input id="gd-webfont1" class="mdl-textfield__input" type="text">
+                  <label class="mdl-textfield__label" for="gd-webfont1">webfont link 1 (&lt;link&gt;)</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
+                  <input id="gd-fontfamily1" class="mdl-textfield__input" type="text" list="preset-fonts">
+                  <label class="mdl-textfield__label" for="gd-fontfamily1">font 1 (Tsukushi A Round Gothic)</label>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col v-center">
+                  <input id="gd-fontweight1" class="mdl-slider mdl-js-slider" type="range" min="100" max="900" value="400" step="100">
+                  <span id="fontweight1-tooltip" for="gd-fontweight1" class="mdl-tooltip"></span>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col mdl-grid">
+                <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+                  <input id="gd-webfont2" class="mdl-textfield__input" type="text">
+                  <label class="mdl-textfield__label" for="gd-webfont2">webfont link 2 (&lt;link&gt;)</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--8-col">
+                  <input id="gd-fontfamily2" class="mdl-textfield__input" type="text" list="preset-fonts">
+                  <label class="mdl-textfield__label" for="gd-fontfamily2">font 2 (Tsukushi A Round Gothic)</label>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col v-center">
+                  <input id="gd-fontweight2" class="mdl-slider mdl-js-slider" type="range" min="100" max="900" value="400" step="100">
+                  <span id="fontweight2-tooltip" for="gd-fontweight2" class="mdl-tooltip"></span>
+                </div>
+              </div>
+            </div>
+            <datalist id="preset-fonts">
+              <option value="Arial" />
+              <option value="Avenir Next" />
+              <option value="Avenir" />
+              <option value="Courier New" />
+              <option value="Courier" />
+              <option value="Futura" />
+              <option value="Georgia" />
+              <option value="Gill Sans" />
+              <option value="Helvetica Neue" />
+              <option value="Helvetica" />
+              <option value="Impact" />
+              <option value="Optima" />
+              <option value="Palatino" />
+              <option value="Times New Roman" />
+              <option value="Verdana" />
+            </datalist>
+          </div>
+
+          <div class="mdl-tabs__panel" id="panel-styles">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--4-col mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col v-center">
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-normal">
+                    <input class="mdl-radio__button" id="gd-slant-normal" name="slant" type="radio" value="normal">
+                    <span class="mdl-radio__label">Normal</span>
+                  </label>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col v-center">
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-italic">
+                    <input class="mdl-radio__button" id="gd-slant-italic" name="slant" type="radio" value="italic">
+                    <span class="mdl-radio__label">Italic</span>
+                  </label>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col v-center">
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-oblique">
+                    <input class="mdl-radio__button" id="gd-slant-oblique" name="slant" type="radio" value="oblique">
+                    <span class="mdl-radio__label">Oblique</span>
+                  </label>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col v-center">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gd-baseline">
+                    <input type="checkbox" id="gd-baseline" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label">Baseline</span>
+                  </label>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col v-center">
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gd-darkmode">
+                    <input type="checkbox" id="gd-darkmode" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label">Dark mode</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--5-col mdl-grid">
+                <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--6-col">
+                  <input id="gd-color2" class="mdl-textfield__input" type="color">
+                </div>
+                <div class="mdl-cell mdl-cell--6-col v-center">
+                  <input class="mdl-slider mdl-js-slider " id="gd-opacity2" type="range" min="0" max="1" step="0.01">
+                  <span for="gd-opacity2" class="mdl-tooltip" id="opacity2-tooltip">Opacity: 70</span>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col v-center">
+                  <input class="mdl-slider mdl-js-slider" id="gd-size2" type="range" min="0.8" max="1.2" step="0.01">
+                  <span for="gd-size2" class="mdl-tooltip" id="size2-tooltip">Relative size: 1.0</span>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col v-center">
+                  <input class="mdl-slider mdl-js-slider" id="gd-spacing2" type="range" min="-0.1" max="0.1" value="0" step="0.01">
+                  <span for="gd-spacing2" class="mdl-tooltip" id="spacing2-tooltip"></span>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--3-col mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col v-center">
+                  <input class="mdl-slider mdl-js-slider" id="gd-translateX" type="range" min="-30" max="30" value="0">
+                  <span for="gd-translateX" class="mdl-tooltip" id="translateX-tooltip">Translate-x: 0</span>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col v-center">
+                  <input class="mdl-slider mdl-js-slider" id="gd-translateY" type="range" min="-30" max="30" value="0">
+                  <span for="gd-translateY" class="mdl-tooltip" id="translateY-tooltip">Translate-y: 0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mdl-tabs__panel" id="panel-about">
+            <div class="info">
+              <h1>glyphdiff</h1>
+              <p>is a simple tool comparing the differences of two fonts on given glyphs.</p>
+              <p><a href="https://github.com/chadluo/glyphdiff">GitHub repo</a> &middot; <a href="/">made by chadluo</a></p>
+            </div>
+          </div>
+
         </div>
       </div>
 
