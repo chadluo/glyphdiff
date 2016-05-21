@@ -1,6 +1,7 @@
 html, body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   transition: .2s;
+  font-size: 100%;
 }
 #parallax {
   position: fixed;
@@ -76,8 +77,11 @@ html, body {
   top: 75vh;
   width: 100%;
 }
+#gd-color2 {
+  padding: 0;
+}
 .container {
-  max-width: 960px;
+  max-width: 1000px;
   margin: auto;
 }
 .info {
@@ -106,6 +110,24 @@ html, body {
   right: 4vmin;
 }
 
+/* tooltips */
+
+#opacity2-tooltip::before {
+  content: 'Opacity: ';
+}
+#size2-tooltip::before {
+  content: 'Size: ';
+}
+#spacing2-tooltip::before {
+  content: 'Tracking: ';
+}
+#translateX-tooltip::before {
+  content: 'x-offset: ';
+}
+#translateY-tooltip::before {
+  content: 'y-offset: ';
+}
+
 /* helpers */
 
 .strokeCC {
@@ -115,7 +137,6 @@ html, body {
   fill: currentColor;
   opacity: 0.4;
 }
-.v-center {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.toppad {
+  padding-top: 25px;
 }
