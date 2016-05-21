@@ -8,8 +8,6 @@ var def = {
   fontfamily2: 'Tsukushi B Round Gothic',
   fontweight1: 400,
   fontweight2: 400,
-  webfont1: '',
-  webfont2: '',
   slant: 'normal',
   baseline: 1,
   darkmode: 0,
@@ -49,6 +47,7 @@ updateLabel('label-font1', s1);
 
 $('gd-fontfamily1').oninput = function () {
   $('gd-input').style.fontFamily = s1.style.fontFamily = conf.fontfamily1 = this.value || def.fontfamily1;
+  loadFonts();
   updateLabel('label-font1', s1);
 };
 
@@ -67,6 +66,7 @@ updateLabel('label-font2', s2);
 
 $('gd-fontfamily2').oninput = function () {
   s2.style.fontFamily = conf.fontfamily2 = this.value || def.fontfamily2;
+  loadFonts();
   updateLabel('label-font2', s2);
 };
 
@@ -74,24 +74,6 @@ $('gd-fontweight2').oninput = function () {
   s2.style.fontWeight = conf.fontweight = this.value;
   $('fontweight2-tooltip').textContent = 'Weight:' + this.value;
   updateLabel('label-font2', s2);
-};
-
-// load external webfonts
-
-var initialHead = document.head.innerHTML;
-
-$('gd-webfont1').value = conf.webfont1;
-$('gd-webfont2').value = conf.webfont2;
-
-document.head.innerHTML = initialHead + conf.webfont1 + conf.webfont2;
-
-$('gd-webfont1').oninput = function () {
-  document.head.innerHTML = initialHead + this.value;
-  conf.webfont1 = this.value;
-};
-$('gd-webfont2').oninput = function () {
-  document.head.innerHTML = initialHead + this.value;
-  conf.webfont2 = this.value;
 };
 
 // slantness
@@ -225,6 +207,14 @@ $('gd-share').onclick = function () {
 
 function $(x) {
   return document.getElementById(x);
+}
+
+// load external webfonts
+
+function loadFonts() {
+  WebFont.load({
+    google: { families: [conf.fontfamily1, conf.fontfamily2] }
+  });
 }
 
 // query
