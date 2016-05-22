@@ -29,6 +29,7 @@
             <tspan id="label-color2" fill="green">&#9724;</tspan>
             <tspan id="label-font2" class="fillCC"></tspan>
           </text>
+          <!-- <text x="98%" y="95%" text-anchor="end">glyphdiff.yuki.rocks</text> -->
         </svg>
         <input type="text" id="gd-input" value="いろは">
       </div>
@@ -138,7 +139,7 @@
                       <span class="mdl-checkbox__label">Dark mode</span>
                     </label>
                   </div>
-                  <div class="mdl-cell mdl-cell--4-col toppad">
+                  <div class="mdl-cell mdl-cell--4-col">
                     <input id="gd-color2" class="mdl-button mdl-js-button" type="color">
                   </div>
                 </div>
@@ -146,19 +147,13 @@
               <div class="mdl-cell mdl-cell--4-col">
                 <div class="mdl-grid">
                   <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="opacity2-tooltip"></span>
-                  </div>
-                  <div class="mdl-cell mdl-cell--7-col toppad">
-                    <input class="mdl-slider mdl-js-slider" id="gd-opacity2" type="range" min="0" max="1" step="0.05">
-                  </div>
-                  <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="size2-tooltip"></span>
+                    <span id="size2-tooltip" class="tooltip"></span>
                   </div>
                   <div class="mdl-cell mdl-cell--7-col toppad">
                     <input class="mdl-slider mdl-js-slider" id="gd-size2" type="range" min="0.8" max="1.2" step="0.01">
                   </div>
                   <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="spacing2-tooltip"></span>
+                    <span id="spacing2-tooltip" class="tooltip"></span>
                   </div>
                   <div class="mdl-cell mdl-cell--7-col toppad">
                     <input class="mdl-slider mdl-js-slider" id="gd-spacing2" type="range" min="-0.1" max="0.1" value="0" step="0.01">
@@ -168,13 +163,13 @@
               <div class="mdl-cell mdl-cell--4-col">
                 <div class="mdl-grid">
                   <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="translateX-tooltip"></span>
+                    <span id="translateX-tooltip" class="tooltip"></span>
                   </div>
                   <div class="mdl-cell mdl-cell--7-col toppad">
                     <input class="mdl-slider mdl-js-slider" id="gd-translateX" type="range" min="-30" max="30" value="0">
                   </div>
                   <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="translateY-tooltip"></span>
+                    <span id="translateY-tooltip" class="tooltip"></span>
                   </div>
                   <div class="mdl-cell mdl-cell--7-col toppad">
                     <input class="mdl-slider mdl-js-slider" id="gd-translateY" type="range" min="-30" max="30" value="0">

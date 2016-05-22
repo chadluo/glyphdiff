@@ -10,8 +10,8 @@ var def = {
   slant2: 'normal',
   baseline: 1,
   darkmode: 0,
-  color: '#008000',
-  opacity: 0.7,
+  color: '#40A040',
+  // opacity: 0.7,
   size: 1.0,
   tracking: 0,
   x: 0,
@@ -131,15 +131,6 @@ $('gd-darkmode').onchange = function () {
 s2.style.fill = $('label-color2').style.fill = $('gd-color2').value = conf.color;
 $('gd-color2').oninput = function () {
   s2.style.fill = $('label-color2').style.fill = conf.color = this.value || def.color;
-};
-
-// opacity
-
-s2.style.fillOpacity = $('gd-opacity2').value = $('opacity2-tooltip').textContent = conf.opacity;
-$('gd-opacity2').oninput = function () {
-  s2.style.fillOpacity = this.value;
-  $('opacity2-tooltip').textContent = this.value;
-  conf.opacity = this.value;
 };
 
 // size

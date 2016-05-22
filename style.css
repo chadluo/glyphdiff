@@ -78,6 +78,7 @@ html, body {
   width: 100%;
 }
 #gd-color2 {
+  margin-top: 13px;
   padding: 0;
 }
 .container {
@@ -94,8 +95,7 @@ html, body {
 .info h1 {
   font-family: 'Teko', sans-serif;
   text-align: center;
-  letter-spacing: 0.2em;
-  text-indent: 0.2em;
+  letter-spacing: 0.15em;
 }
 .info p {
   margin: auto;
@@ -112,8 +112,11 @@ html, body {
 
 /* tooltips */
 
-#opacity2-tooltip::before {
-  content: 'Opacity: ';
+.tooltip {
+  line-height: 24px;
+}
+.mdl-slider__container {
+  height: 24px;
 }
 #size2-tooltip::before {
   content: 'Size: ';
@@ -138,5 +141,5 @@ html, body {
   opacity: 0.4;
 }
 .toppad {
-  padding-top: 25px;
+  padding-top: 20px;
 }
