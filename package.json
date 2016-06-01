@@ -1,0 +1,23 @@
+{
+  "name": "glyphdiff",
+  "version": "0.1.0",
+  "description": "Compare fonts glyphwise.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chadluo/glyphdiff.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chadluo/glyphdiff/issues"
+  },
+  "homepage": "https://github.com/chadluo/glyphdiff#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
