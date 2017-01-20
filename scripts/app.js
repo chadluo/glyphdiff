@@ -128,9 +128,9 @@ $('gd-darkmode').onchange = function () {
 
 // color
 
-s2.style.fill = $('label-color2').style.fill = $('gd-color2').value = conf.color;
+s2.style.fill = $('label-font2').style.fill = $('gd-color2').value = conf.color;
 $('gd-color2').oninput = function () {
-  s2.style.fill = $('label-color2').style.fill = conf.color = this.value || def.color;
+  s2.style.fill = $('label-font2').style.fill = conf.color = this.value || def.color;
 };
 
 // size
@@ -191,7 +191,7 @@ $('gd-share').onclick = function () {
     document.execCommand("copy");
   } catch (e) {} finally {
     $('share-link').MaterialSnackbar.showSnackbar({
-      message: 'configuration copied. (not for Safari, please copy manually)'
+      message: 'configuration copied.'
     });
     document.body.removeChild(t);
   }
