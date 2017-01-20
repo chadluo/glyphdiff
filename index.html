@@ -16,12 +16,8 @@
         <line id="baseline" x1="10%" y1="70%" x2="90%" y2="70%" class="mdl-animation--default strokeCC" />
         <text id="sample2" x="50%" y="70%"></text>
         <text id="sample1" x="50%" y="70%" class="strokeCC"></text>
-        <text id="label1" x="48%" y="95%" text-anchor="end">
-          <tspan id="label-font1" class="fillCC"></tspan>
-        </text>
-        <text id="label2" x="52%" y="95%">
-          <tspan id="label-font2" class="fillCC"></tspan>
-        </text>
+        <text id="label-font1" x="48%" y="95%" class="fillCC" text-anchor="end"></text>
+        <text id="label-font2" x="52%" y="95%" class="fillCC"></text>
         <!-- <text x="98%" y="95%" text-anchor="end">glyphdiff.yuki.rocks</text> -->
       </svg>
       <input type="text" id="gd-input" value="いろは">
@@ -90,6 +86,11 @@
                       <input class="mdl-radio__button" id="gd-slant-oblique2" name="slant2" type="radio" value="oblique">
                       <span class="mdl-radio__label">Oblique</span>
                     </label>
+                </div>
+                <div class="mdl-cell mdl-cell--3-col">
+                  <button id="gd-swap" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect">
+                    <i class="material-icons">swap_horiz</i>
+                  </button>
                 </div>
               </div>
             </div>

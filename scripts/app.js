@@ -70,7 +70,7 @@ $('gd-fontfamily2').oninput = function () {
 };
 
 $('gd-fontweight2').oninput = function () {
-  s2.style.fontWeight = conf.fontweight = this.value;
+  s2.style.fontWeight = conf.fontweight2 = this.value;
   loadFonts();
   updateLabel('label-font2', s2);
 };
@@ -91,15 +91,55 @@ for (var i = 0; i < 3; i++) {
     s2.style.fontStyle = curr2.value;
   }
   curr1.onclick = function () {
-    s1.style.fontStyle = this.value;
-    conf.slant1 = this.value;
+    s1.style.fontStyle = conf.slant1 = this.value;
     loadFonts();
   };
   curr2.onclick = function () {
-    s2.style.fontStyle = this.value;
-    conf.slant2 = this.value;
+    s2.style.fontStyle = conf.slant2 = this.value;
     loadFonts();
   };
+}
+
+// swap
+
+$('gd-swap').onclick = function () {
+  // update conf object
+  swapStyle('fontfamily1', 'fontfamily2');
+  swapStyle('fontweight1', 'fontweight2');
+  swapStyle('slant1', 'slant2');
+  loadFonts();
+
+  // update styles and controllers
+  $('gd-fontfamily1').value = $('gd-input').style.fontFamily = s1.style.fontFamily = conf.fontfamily1 || def.fontfamily1;
+  $('gd-fontfamily2').value = s2.style.fontFamily = conf.fontfamily2 || def.fontfamily2;
+
+  s1.style.fontWeight = conf.fontweight1;
+  $('gd-fontweight1').MaterialSlider.change(conf.fontweight1);
+  s2.style.fontWeight = conf.fontweight2;
+  $('gd-fontweight2').MaterialSlider.change(conf.fontweight2);
+
+  updateLabel('label-font1', s1);
+  updateLabel('label-font2', s2);
+
+  for (var i = 0; i < 3; i++) {
+    var curr1 = slantOptions1[i],
+      curr2 = slantOptions2[i];
+    if (curr1.value == conf.slant1) {
+      curr1.parentNode.MaterialRadio.check();
+      s1.style.fontStyle = curr1.value;
+    }
+    if (curr2.value == conf.slant2) {
+      curr2.parentNode.MaterialRadio.check();
+      s2.style.fontStyle = curr2.value;
+    }
+
+  }
+
+  function swapStyle(v1, v2) {
+    var tmp = conf[v1];
+    conf[v1] = conf[v2];
+    conf[v2] = tmp;
+  }
 }
 
 // baseline
