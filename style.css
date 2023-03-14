@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", sans-serif;
   transition: 0.2s;
   font-size: 100%;
 }
@@ -35,7 +35,7 @@ body {
   border: none;
   font-size: 45vh;
   text-align: center;
-  font-family: "Tsukushi A Round Gothic";
+  font-family: "Zen Kaku Gothic New";
 }
 #gd-input:focus {
   outline: none;
@@ -94,9 +94,9 @@ body {
   color: #5e5545;
 }
 .info h1 {
-  font-family: "Teko", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.05em;
 }
 .info p {
   margin: auto;

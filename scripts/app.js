@@ -2,8 +2,8 @@
 
 let def = {
   text: "いろは",
-  fontfamily1: "Tsukushi A Round Gothic",
-  fontfamily2: "Tsukushi B Round Gothic",
+  fontfamily1: "Zen Kaku Gothic New",
+  fontfamily2: "Zen Maru Gothic",
   fontweight1: 400,
   fontweight2: 400,
   slant1: "normal",
@@ -110,8 +110,10 @@ $("gd-swap").addEventListener("click", function () {
   loadFonts();
 
   // update styles and controllers
-  $("gd-fontfamily1").value = $("gd-input").style.fontFamily = s1.style.fontFamily =
-    conf.fontfamily1 || def.fontfamily1;
+  $("gd-fontfamily1").value =
+    $("gd-input").style.fontFamily =
+    s1.style.fontFamily =
+      conf.fontfamily1 || def.fontfamily1;
   $("gd-fontfamily2").value = s2.style.fontFamily = conf.fontfamily2 || def.fontfamily2;
 
   s1.style.fontWeight = conf.fontweight1;
@@ -257,6 +259,7 @@ function loadFonts() {
         `${conf.fontfamily1}:${conf.fontweight1}${conf.slant1 === "normal" ? "" : conf.slant1}`,
         `${conf.fontfamily2}:${conf.fontweight2}${conf.slant2 === "normal" ? "" : conf.slant2}`,
       ],
+      text: conf.text,
     },
   });
 }
