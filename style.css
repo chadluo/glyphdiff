@@ -1,6 +1,7 @@
-html, body {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  transition: .2s;
+html,
+body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  transition: 0.2s;
   font-size: 100%;
 }
 #parallax {
@@ -34,7 +35,7 @@ html, body {
   border: none;
   font-size: 45vh;
   text-align: center;
-  font-family: 'Tsukushi A Round Gothic';
+  font-family: "Tsukushi A Round Gothic";
 }
 #gd-input:focus {
   outline: none;
@@ -58,9 +59,12 @@ html, body {
 #baseline {
   vector-effect: non-scaling-stroke;
   stroke-width: 1px;
-  transition: .2s;
+  transition: 0.2s;
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+  (min--moz-device-pixel-ratio: 2),
+  (min-resolution: 2dppx),
+  (min-resolution: 192dpi) {
   #baseline {
     stroke-width: 0.5px;
   }
@@ -87,10 +91,10 @@ html, body {
 }
 .info a {
   text-decoration: none;
-  color: #5E5545;
+  color: #5e5545;
 }
 .info h1 {
-  font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
   text-align: center;
   letter-spacing: 0.15em;
 }
@@ -116,16 +120,16 @@ html, body {
   height: 24px;
 }
 #size2-tooltip::before {
-  content: 'Size: ';
+  content: "Size: ";
 }
 #spacing2-tooltip::before {
-  content: 'Tracking: ';
+  content: "Tracking: ";
 }
 #translateX-tooltip::before {
-  content: 'x-offset: ';
+  content: "x-offset: ";
 }
 #translateY-tooltip::before {
-  content: 'y-offset: ';
+  content: "y-offset: ";
 }
 
 /* helpers */
