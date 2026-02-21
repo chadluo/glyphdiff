@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   transition: 0.2s;
   font-size: 100%;
 }
@@ -103,9 +103,9 @@ body {
 }
 
 .info h1 {
-  font-family: "Roboto Condensed", sans-serif;
   text-align: center;
-  letter-spacing: 0.05em;
+  font-weight: 200;
+  letter-spacing: 0.05ch;
 }
 
 .info p {
@@ -133,4 +133,3 @@ body {
 .fillCC {
   fill: currentColor;
 }
-
