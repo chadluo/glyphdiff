@@ -158,15 +158,19 @@ $("gd-baseline").addEventListener("change", (event) => {
 // dark mode
 
 $("gd-darkmode").checked = conf.darkmode === "1";
-if ($("gd-darkmode").checked) {
-  document.body.setAttribute("data-bs-theme", "dark");
-}
+setColorScheme($("gd-darkmode").checked);
 
 $("gd-darkmode").addEventListener("change", (event) => {
   let checker = event.target;
-  document.body.setAttribute("data-bs-theme", checker.checked ? "dark" : "light");
+  setColorScheme(checker.checked);
   conf.darkmode = checker.checked ? 1 : 0;
 });
+
+function setColorScheme(dark) {
+  let theme = dark ? "dark" : "light";
+  document.documentElement.setAttribute("data-bs-theme", theme);
+  document.documentElement.style.colorScheme = theme;
+}
 
 // color
 

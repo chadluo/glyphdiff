@@ -36,82 +36,87 @@
 
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-fonts" type="button" role="tab">Fonts</button>
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-fonts" type="button"
+              role="tab">Fonts</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-tunings" type="button" role="tab">Tunings</button>
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-tunings" type="button"
+              role="tab">Tunings</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-about" type="button" role="tab">About</button>
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-about" type="button"
+              role="tab">About</button>
           </li>
         </ul>
 
-        <div class="tab-content">
+        <div class="tab-content pt-3">
           <div class="tab-pane active" id="panel-fonts" role="tabpanel">
-            <div class="row">
-              <div class="col-6">
-                <div class="row">
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <div class="row gy-3">
                   <div class="col-7">
                     <label class="form-label" for="gd-fontfamily1">Font family</label>
                     <input id="gd-fontfamily1" class="form-control" type="text" list="preset-fonts"
                       placeholder="Zen Kaku Gothic New" />
                   </div>
-                  <div class="col-5 toppad">
+                  <div class="col-5">
                     <label class="form-label" for="gd-fontweight1">Weight</label>
-                    <input id="gd-fontweight1" class="form-range" type="range" min="100" max="900"
-                      value="400" step="100" />
+                    <input id="gd-fontweight1" class="form-range" type="range" min="100" max="900" value="400"
+                      step="100" />
                   </div>
-                  <div class="col-3">
+                  <div class="col-auto">
                     <div class="form-check">
                       <input class="form-check-input" id="gd-slant-normal1" name="slant1" type="radio" value="normal" />
                       <label class="form-check-label" for="gd-slant-normal1">Normal</label>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-auto">
                     <div class="form-check">
                       <input class="form-check-input" id="gd-slant-italic1" name="slant1" type="radio" value="italic" />
                       <label class="form-check-label" for="gd-slant-italic1">Italic</label>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-auto">
                     <div class="form-check">
-                      <input class="form-check-input" id="gd-slant-oblique1" name="slant1" type="radio" value="oblique" />
+                      <input class="form-check-input" id="gd-slant-oblique1" name="slant1" type="radio"
+                        value="oblique" />
                       <label class="form-check-label" for="gd-slant-oblique1">Oblique</label>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-6">
-                <div class="row">
+              <div class="col-md-6">
+                <div class="row gy-3">
                   <div class="col-7">
                     <label class="form-label" for="gd-fontfamily2">Font family</label>
                     <input id="gd-fontfamily2" class="form-control" type="text" list="preset-fonts"
                       placeholder="Zen Maru Gothic" />
                   </div>
-                  <div class="col-5 toppad">
+                  <div class="col-5">
                     <label class="form-label" for="gd-fontweight2">Weight</label>
-                    <input id="gd-fontweight2" class="form-range" type="range" min="100" max="900"
-                      value="400" step="100" />
+                    <input id="gd-fontweight2" class="form-range" type="range" min="100" max="900" value="400"
+                      step="100" />
                   </div>
-                  <div class="col-3">
+                  <div class="col-auto">
                     <div class="form-check">
                       <input class="form-check-input" id="gd-slant-normal2" name="slant2" type="radio" value="normal" />
                       <label class="form-check-label" for="gd-slant-normal2">Normal</label>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-auto">
                     <div class="form-check">
                       <input class="form-check-input" id="gd-slant-italic2" name="slant2" type="radio" value="italic" />
                       <label class="form-check-label" for="gd-slant-italic2">Italic</label>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-auto">
                     <div class="form-check">
-                      <input class="form-check-input" id="gd-slant-oblique2" name="slant2" type="radio" value="oblique" />
+                      <input class="form-check-input" id="gd-slant-oblique2" name="slant2" type="radio"
+                        value="oblique" />
                       <label class="form-check-label" for="gd-slant-oblique2">Oblique</label>
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-auto">
                     <button id="gd-swap" class="btn btn-outline-secondary btn-sm">
                       <i class="material-icons">swap_horiz</i>
                     </button>
@@ -139,50 +144,52 @@
           </div>
 
           <div class="tab-pane" id="panel-tunings" role="tabpanel">
-            <div class="row">
-              <div class="col-4">
-                <div class="row">
-                  <div class="col-6 toppad">
+            <div class="row gy-3">
+              <div class="col-md-4">
+                <div class="row gy-3">
+                  <div class="col-auto">
                     <div class="form-check">
                       <input type="checkbox" id="gd-baseline" class="form-check-input" />
                       <label class="form-check-label" for="gd-baseline">Baseline</label>
                     </div>
                   </div>
-                  <div class="col-6 toppad">
+                  <div class="col-auto">
                     <div class="form-check">
                       <input type="checkbox" id="gd-darkmode" class="form-check-input" />
                       <label class="form-check-label" for="gd-darkmode">Dark mode</label>
                     </div>
                   </div>
-                  <div class="col-4">
+                </div>
+                <div class="row gy-3">
+                  <div class="col-auto">
                     <input id="gd-color2" class="form-control form-control-color" type="color" />
                   </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="row">
-                  <div class="col-12 toppad">
+              <div class="col-md-4">
+                <div class="row gy-3">
+                  <div class="col-12">
                     <label class="form-label" for="gd-size2">Size <span id="size2-tooltip"></span></label>
                     <input class="form-range" id="gd-size2" type="range" min="0.8" max="1.2" step="0.01" />
                   </div>
-                  <div class="col-12 toppad">
+                  <div class="col-12">
                     <label class="form-label" for="gd-spacing2">Spacing <span id="spacing2-tooltip"></span></label>
                     <input class="form-range" id="gd-spacing2" type="range" min="-0.1" max="0.1" value="0"
                       step="0.01" />
                   </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="row">
-                  <div class="col-12 toppad">
-                    <label class="form-label" for="gd-translateX">Translate X <span id="translateX-tooltip"></span></label>
-                    <input class="form-range" id="gd-translateX" type="range" min="-30" max="30"
-                      value="0" />
+              <div class="col-md-4">
+                <div class="row gy-3">
+                  <div class="col-12">
+                    <label class="form-label" for="gd-translateX">Translate X <span
+                        id="translateX-tooltip"></span></label>
+                    <input class="form-range" id="gd-translateX" type="range" min="-30" max="30" value="0" />
                   </div>
-                  <div class="col-12 toppad">
-                    <label class="form-label" for="gd-translateY">Translate Y <span id="translateY-tooltip"></span></label>
-                    <input class="form-range" id="gd-translateY" type="range" min="-30" max="30"
-                      value="0" />
+                  <div class="col-12">
+                    <label class="form-label" for="gd-translateY">Translate Y <span
+                        id="translateY-tooltip"></span></label>
+                    <input class="form-range" id="gd-translateY" type="range" min="-30" max="30" value="0" />
                   </div>
                 </div>
               </div>
