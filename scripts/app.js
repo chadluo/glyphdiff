@@ -1,6 +1,6 @@
 "use strict";
 
-let def = {
+const def = {
   text: "いろは",
   fontfamily1: "Zen Kaku Gothic New",
   fontfamily2: "Zen Maru Gothic",
@@ -18,14 +18,15 @@ let def = {
   y: 0,
 };
 
-let conf = {};
+const conf = {};
 
-for (let k in def) {
-  conf[k] = param(k) || def[k];
+const params = new URLSearchParams(window.location.search)
+for (const k in def) {
+  conf[k] = params.get(k) || def[k];
 }
 
-let s1 = $("sample1");
-let s2 = $("sample2");
+const s1 = $("sample1");
+const s2 = $("sample2");
 
 // sample content
 
@@ -77,11 +78,11 @@ $("gd-fontweight2").addEventListener("input", (event) => {
 
 // slantness
 
-let slantOptions1 = document.getElementsByName("slant1");
-let slantOptions2 = document.getElementsByName("slant2");
+const slantOptions1 = document.getElementsByName("slant1");
+const slantOptions2 = document.getElementsByName("slant2");
 for (let i = 0; i < 3; i++) {
-  let curr1 = slantOptions1[i];
-  let curr2 = slantOptions2[i];
+  const curr1 = slantOptions1[i];
+  const curr2 = slantOptions2[i];
   if (curr1.value === conf.slant1) {
     curr1.checked = true;
     s1.style.fontStyle = curr1.value;
@@ -113,32 +114,32 @@ $("gd-swap").addEventListener("click", function () {
   $("gd-fontfamily1").value =
     $("gd-input").style.fontFamily =
     s1.style.fontFamily =
-      conf.fontfamily1 || def.fontfamily1;
+    conf.fontfamily1 || def.fontfamily1;
   $("gd-fontfamily2").value = s2.style.fontFamily = conf.fontfamily2 || def.fontfamily2;
 
   s1.style.fontWeight = conf.fontweight1;
-  $("gd-fontweight1").MaterialSlider.change(conf.fontweight1);
+  $("gd-fontweight1").value = conf.fontweight1;
   s2.style.fontWeight = conf.fontweight2;
-  $("gd-fontweight2").MaterialSlider.change(conf.fontweight2);
+  $("gd-fontweight2").value = conf.fontweight2;
 
   updateLabel("label-font1", s1);
   updateLabel("label-font2", s2);
 
-  for (let i = 0; i < 3; i++) {
-    let curr1 = slantOptions1[i];
-    let curr2 = slantOptions2[i];
+  for (const i = 0; i < 3; i++) {
+    const curr1 = slantOptions1[i];
+    const curr2 = slantOptions2[i];
     if (curr1.value === conf.slant1) {
-      curr1.parentNode.MaterialRadio.check();
+      curr1.checked = true;
       s1.style.fontStyle = curr1.value;
     }
     if (curr2.value === conf.slant2) {
-      curr2.parentNode.MaterialRadio.check();
+      curr2.checked = true;
       s2.style.fontStyle = curr2.value;
     }
   }
 
   function swapStyle(v1, v2) {
-    let tmp = conf[v1];
+    const tmp = conf[v1];
     conf[v1] = conf[v2];
     conf[v2] = tmp;
   }
@@ -150,7 +151,7 @@ $("gd-baseline").checked = conf.baseline === "1";
 $("baseline").setAttribute("stroke-opacity", $("gd-baseline").checked ? 0.7 : 0);
 
 $("gd-baseline").addEventListener("change", (event) => {
-  let checker = event.target;
+  const checker = event.target;
   $("baseline").setAttribute("stroke-opacity", checker.checked ? 0.7 : 0);
   conf.baseline = checker.checked ? 1 : 0;
 });
@@ -158,17 +159,19 @@ $("gd-baseline").addEventListener("change", (event) => {
 // dark mode
 
 $("gd-darkmode").checked = conf.darkmode === "1";
-if ($("gd-darkmode").checked) {
-  $("writepad").className = "mdl-color-text--grey-400";
-  document.body.className = "mdl-color--grey-900";
-}
+setColorScheme($("gd-darkmode").checked);
 
 $("gd-darkmode").addEventListener("change", (event) => {
-  let checker = event.target;
-  $("writepad").className = checker.checked ? "mdl-color-text--grey-400" : "mdl-color-text--grey-900";
-  document.body.className = checker.checked ? "mdl-color--grey-900" : "mdl-color--grey-50 ";
+  const checker = event.target;
+  setColorScheme(checker.checked);
   conf.darkmode = checker.checked ? 1 : 0;
 });
+
+function setColorScheme(dark) {
+  const theme = dark ? "dark" : "light";
+  document.documentElement.setAttribute("data-bs-theme", theme);
+  document.documentElement.style.colorScheme = theme;
+}
 
 // color
 
@@ -184,7 +187,7 @@ $("gd-size2").value = conf.size;
 $("size2-tooltip").textContent = conf.size;
 
 $("gd-size2").addEventListener("input", (event) => {
-  let value = event.target.value;
+  const value = event.target.value;
   s2.style.fontSize = `${value * 45}vh`;
   $("size2-tooltip").textContent = value;
   conf.size = value;
@@ -197,7 +200,7 @@ $("gd-spacing2").value = conf.tracking;
 $("spacing2-tooltip").textContent = conf.tracking;
 
 $("gd-spacing2").addEventListener("input", (event) => {
-  let value = event.target.value;
+  const value = event.target.value;
   s2.setAttribute("letter-spacing", `${value}em`);
   $("spacing2-tooltip").textContent = value;
   conf.tracking = value;
@@ -227,21 +230,18 @@ $("gd-translateY").oninput = function (event) {
 // share config snackbar
 
 $("gd-share").onclick = function () {
-  let t = document.createElement("textarea");
-  let newURL = location.origin + location.pathname + queries();
-  t.textContent = newURL;
-  t.style.position = "fixed";
-  document.body.appendChild(t);
-  t.select();
-  document.execCommand("copy");
-  $("share-link").MaterialSnackbar.showSnackbar({
-    message: "configuration copied.",
-  });
-  document.body.removeChild(t);
+  // const newURL = location.origin + location.pathname + queries();
+  const newURL = new URL(location)
+  for (const k in conf) {
+    if (conf[k] !== def[k]) {
+      params.append(k, conf[k])
+      newURL.searchParams.set(k, conf[k])
+    }
+  }
+
+  navigator.clipboard.writeText(newURL);
   history.pushState(null, null, newURL);
 };
-
-// helpers
 
 // id selector shorthand
 
@@ -262,12 +262,6 @@ function loadFonts() {
       text: conf.text,
     },
   });
-}
-
-// query
-
-function param(name) {
-  return new URLSearchParams(window.location.search).get(name);
 }
 
 // labels
@@ -294,14 +288,3 @@ function translate() {
   s2.setAttribute("transform", `translate(${conf.x},${conf.y})`);
 }
 
-// sharing query
-
-function queries() {
-  let result = [];
-  for (let k in conf) {
-    if (conf[k] !== def[k]) {
-      result.push(`${k}=${encodeURIComponent(conf[k])}`);
-    }
-  }
-  return result.length ? "?" + result.join("&") : "";
-}

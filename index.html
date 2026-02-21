@@ -1,152 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>glyphdiff</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300;400;500;700&family=Zen+Kaku+Gothic+Antique&family=Zen+Maru+Gothic&family=Material+Icons&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>glyphdiff</title>
 
-  <body class="mdl-color--grey-50">
-    <div id="parallax">
-      <div id="writepad" class="mdl-color-text--grey-900">
-        <svg id="comparepad">
-          <line id="baseline" x1="10%" y1="70%" x2="90%" y2="70%" class="mdl-animation--default strokeCC" />
-          <text id="sample2" x="50%" y="70%"></text>
-          <text id="sample1" x="50%" y="70%" class="strokeCC"></text>
-          <text id="label-font1" x="48%" y="95%" class="fillCC" text-anchor="end"></text>
-          <text id="label-font2" x="52%" y="95%" class="fillCC"></text>
-          <!-- <text x="98%" y="95%" text-anchor="end">glyphdiff.yuki.rocks</text> -->
-        </svg>
-        <input type="text" id="gd-input" value="いろは" />
-      </div>
-      <div class="main mdl-color--grey-100">
-        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect container">
-          <div class="mdl-tabs__tab-bar">
-            <a href="#panel-fonts" class="mdl-tabs__tab is-active">Fonts</a>
-            <a href="#panel-tunings" class="mdl-tabs__tab">tunings</a>
-            <a href="#panel-about" class="mdl-tabs__tab">About</a>
-          </div>
-          <div class="mdl-tabs__panel is-active" id="panel-fonts">
-            <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--6-col">
-                <div class="mdl-grid">
-                  <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--7-col">
-                    <input id="gd-fontfamily1" class="mdl-textfield__input" type="text" list="preset-fonts" />
-                    <label class="mdl-textfield__label" for="gd-fontfamily1">Zen Kaku Gothic New</label>
+<!-- google fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap"
+  rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async></script>
+
+<!-- bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<link rel="stylesheet" href="style.css" />
+
+<body>
+  <div id="parallax">
+    <div id="writepad">
+      <svg id="comparepad">
+        <line id="baseline" x1="10%" y1="70%" x2="90%" y2="70%" class="strokeCC" />
+        <text id="sample2" x="50%" y="70%"></text>
+        <text id="sample1" x="50%" y="70%" class="strokeCC"></text>
+        <text id="label-font1" x="48%" y="95%" class="fillCC" text-anchor="end"></text>
+        <text id="label-font2" x="52%" y="95%" class="fillCC"></text>
+        <!-- <text x="98%" y="95%" text-anchor="end">glyphdiff.yuki.rocks</text> -->
+      </svg>
+      <input type="text" id="gd-input" value="いろは" />
+    </div>
+    <div class="main">
+      <div class="container">
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#panel-fonts" type="button"
+              role="tab">Fonts</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#panel-tunings" type="button"
+              role="tab">Tunings</button>
+          </li>
+        </ul>
+
+        <div class="tab-content pt-3">
+          <div class="tab-pane active" id="panel-fonts" role="tabpanel">
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <div class="row gy-3">
+                  <div class="col-7">
+                    <label class="form-label" for="gd-fontfamily1">Font family</label>
+                    <input id="gd-fontfamily1" class="form-control" type="text" list="preset-fonts"
+                      placeholder="Zen Kaku Gothic New" />
                   </div>
-                  <div class="mdl-cell mdl-cell--5-col toppad">
-                    <input
-                      id="gd-fontweight1"
-                      class="mdl-slider mdl-js-slider"
-                      type="range"
-                      min="100"
-                      max="900"
-                      value="400"
-                      step="100"
-                    />
+                  <div class="col-5">
+                    <label class="form-label" for="gd-fontweight1">Weight</label>
+                    <input id="gd-fontweight1" class="form-range" type="range" min="100" max="900" value="400"
+                      step="100" />
                   </div>
-                  <div class="mdl-cell mdl-cell--3-col">
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-normal1">
-                      <input
-                        class="mdl-radio__button"
-                        id="gd-slant-normal1"
-                        name="slant1"
-                        type="radio"
-                        value="normal"
-                      />
-                      <span class="mdl-radio__label">Normal</span>
-                    </label>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input class="form-check-input" id="gd-slant-normal1" name="slant1" type="radio" value="normal" />
+                      <label class="form-check-label" for="gd-slant-normal1">Normal</label>
+                    </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--3-col">
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-italic1">
-                      <input
-                        class="mdl-radio__button"
-                        id="gd-slant-italic1"
-                        name="slant1"
-                        type="radio"
-                        value="italic"
-                      />
-                      <span class="mdl-radio__label">Italic</span>
-                    </label>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input class="form-check-input" id="gd-slant-italic1" name="slant1" type="radio" value="italic" />
+                      <label class="form-check-label" for="gd-slant-italic1">Italic</label>
+                    </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--3-col">
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-oblique1">
-                      <input
-                        class="mdl-radio__button"
-                        id="gd-slant-oblique1"
-                        name="slant1"
-                        type="radio"
-                        value="oblique"
-                      />
-                      <span class="mdl-radio__label">Oblique</span>
-                    </label>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input class="form-check-input" id="gd-slant-oblique1" name="slant1" type="radio"
+                        value="oblique" />
+                      <label class="form-check-label" for="gd-slant-oblique1">Oblique</label>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="mdl-cell mdl-cell--6-col">
-                <div class="mdl-grid">
-                  <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--7-col">
-                    <input id="gd-fontfamily2" class="mdl-textfield__input" type="text" list="preset-fonts" />
-                    <label class="mdl-textfield__label" for="gd-fontfamily2">Zen Maru Gothic</label>
+              <div class="col-md-6">
+                <div class="row gy-3">
+                  <div class="col-7">
+                    <label class="form-label" for="gd-fontfamily2">Font family</label>
+                    <input id="gd-fontfamily2" class="form-control" type="text" list="preset-fonts"
+                      placeholder="Zen Maru Gothic" />
                   </div>
-                  <div class="mdl-cell mdl-cell--5-col toppad">
-                    <input
-                      id="gd-fontweight2"
-                      class="mdl-slider mdl-js-slider"
-                      type="range"
-                      min="100"
-                      max="900"
-                      value="400"
-                      step="100"
-                    />
+                  <div class="col-5">
+                    <label class="form-label" for="gd-fontweight2">Weight</label>
+                    <input id="gd-fontweight2" class="form-range" type="range" min="100" max="900" value="400"
+                      step="100" />
                   </div>
-                  <div class="mdl-cell mdl-cell--3-col">
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-normal2">
-                      <input
-                        class="mdl-radio__button"
-                        id="gd-slant-normal2"
-                        name="slant2"
-                        type="radio"
-                        value="normal"
-                      />
-                      <span class="mdl-radio__label">Normal</span>
-                    </label>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input class="form-check-input" id="gd-slant-normal2" name="slant2" type="radio" value="normal" />
+                      <label class="form-check-label" for="gd-slant-normal2">Normal</label>
+                    </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--3-col">
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-italic2">
-                      <input
-                        class="mdl-radio__button"
-                        id="gd-slant-italic2"
-                        name="slant2"
-                        type="radio"
-                        value="italic"
-                      />
-                      <span class="mdl-radio__label">Italic</span>
-                    </label>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input class="form-check-input" id="gd-slant-italic2" name="slant2" type="radio" value="italic" />
+                      <label class="form-check-label" for="gd-slant-italic2">Italic</label>
+                    </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--3-col">
-                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gd-slant-oblique2">
-                      <input
-                        class="mdl-radio__button"
-                        id="gd-slant-oblique2"
-                        name="slant2"
-                        type="radio"
-                        value="oblique"
-                      />
-                      <span class="mdl-radio__label">Oblique</span>
-                    </label>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input class="form-check-input" id="gd-slant-oblique2" name="slant2" type="radio"
+                        value="oblique" />
+                      <label class="form-check-label" for="gd-slant-oblique2">Oblique</label>
+                    </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--3-col">
-                    <button id="gd-swap" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect">
-                      <i class="material-icons">swap_horiz</i>
+                  <div class="col-auto">
+                    <button id="gd-swap" class="btn btn-outline-secondary btn-sm">
+                      Swap
                     </button>
                   </div>
                 </div>
@@ -170,112 +138,75 @@
               <option value="Verdana" />
             </datalist>
           </div>
-          <div class="mdl-tabs__panel" id="panel-tunings">
-            <div class="mdl-grid">
-              <div class="mdl-cell mdl-cell--4-col">
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--6-col toppad">
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gd-baseline">
-                      <input type="checkbox" id="gd-baseline" class="mdl-checkbox__input" />
-                      <span class="mdl-checkbox__label">Baseline</span>
-                    </label>
+
+          <div class="tab-pane" id="panel-tunings" role="tabpanel">
+            <div class="row gy-3">
+              <div class="col-md-4">
+                <div class="row gy-3">
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input type="checkbox" id="gd-baseline" class="form-check-input" />
+                      <label class="form-check-label" for="gd-baseline">Baseline</label>
+                    </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--6-col toppad">
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="gd-darkmode">
-                      <input type="checkbox" id="gd-darkmode" class="mdl-checkbox__input" />
-                      <span class="mdl-checkbox__label">Dark mode</span>
-                    </label>
+                  <div class="col-auto">
+                    <div class="form-check">
+                      <input type="checkbox" id="gd-darkmode" class="form-check-input" />
+                      <label class="form-check-label" for="gd-darkmode">Dark mode</label>
+                    </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--4-col">
-                    <input id="gd-color2" class="mdl-button mdl-js-button" type="color" />
+                </div>
+                <div class="row gy-3">
+                  <div class="col-auto">
+                    <input id="gd-color2" class="form-control form-control-color" type="color" />
                   </div>
                 </div>
               </div>
-              <div class="mdl-cell mdl-cell--4-col">
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="size2-tooltip" class="tooltip"></span>
+              <div class="col-md-4">
+                <div class="row gy-3">
+                  <div class="col-12">
+                    <label class="form-label" for="gd-size2">Size <span id="size2-tooltip"></span></label>
+                    <input class="form-range" id="gd-size2" type="range" min="0.8" max="1.2" step="0.01" />
                   </div>
-                  <div class="mdl-cell mdl-cell--7-col toppad">
-                    <input
-                      class="mdl-slider mdl-js-slider"
-                      id="gd-size2"
-                      type="range"
-                      min="0.8"
-                      max="1.2"
-                      step="0.01"
-                    />
-                  </div>
-                  <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="spacing2-tooltip" class="tooltip"></span>
-                  </div>
-                  <div class="mdl-cell mdl-cell--7-col toppad">
-                    <input
-                      class="mdl-slider mdl-js-slider"
-                      id="gd-spacing2"
-                      type="range"
-                      min="-0.1"
-                      max="0.1"
-                      value="0"
-                      step="0.01"
-                    />
+                  <div class="col-12">
+                    <label class="form-label" for="gd-spacing2">Spacing <span id="spacing2-tooltip"></span></label>
+                    <input class="form-range" id="gd-spacing2" type="range" min="-0.1" max="0.1" value="0"
+                      step="0.01" />
                   </div>
                 </div>
               </div>
-              <div class="mdl-cell mdl-cell--4-col">
-                <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="translateX-tooltip" class="tooltip"></span>
+              <div class="col-md-4">
+                <div class="row gy-3">
+                  <div class="col-12">
+                    <label class="form-label" for="gd-translateX">Translate X <span
+                        id="translateX-tooltip"></span></label>
+                    <input class="form-range" id="gd-translateX" type="range" min="-30" max="30" value="0" />
                   </div>
-                  <div class="mdl-cell mdl-cell--7-col toppad">
-                    <input
-                      class="mdl-slider mdl-js-slider"
-                      id="gd-translateX"
-                      type="range"
-                      min="-30"
-                      max="30"
-                      value="0"
-                    />
-                  </div>
-                  <div class="mdl-cell mdl-cell--5-col toppad">
-                    <span id="translateY-tooltip" class="tooltip"></span>
-                  </div>
-                  <div class="mdl-cell mdl-cell--7-col toppad">
-                    <input
-                      class="mdl-slider mdl-js-slider"
-                      id="gd-translateY"
-                      type="range"
-                      min="-30"
-                      max="30"
-                      value="0"
-                    />
+                  <div class="col-12">
+                    <label class="form-label" for="gd-translateY">Translate Y <span
+                        id="translateY-tooltip"></span></label>
+                    <input class="form-range" id="gd-translateY" type="range" min="-30" max="30" value="0" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="mdl-tabs__panel" id="panel-about">
-            <div class="info">
-              <h1>glyphdiff</h1>
-              <p>is a simple tool comparing the differences of two fonts on given glyphs.</p>
-              <p>
-                <a href="https://github.com/chadluo/glyphdiff">GitHub repo</a> &middot;
-                <a href="https://yuki.rocks">made by chadluo</a>
-              </p>
-            </div>
-          </div>
+
         </div>
+
+        <div class="py-4">
+          <p class="text-center"><a href="https://github.com/chadluo/glyphdiff">glyphdiff</a></p>
+        </div>
+
       </div>
     </div>
-    <div class="flt">
-      <button id="gd-share" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-        <i class="material-icons">share</i>
-      </button>
-    </div>
-    <div id="share-link" class="mdl-js-snackbar mdl-snackbar">
-      <div class="mdl-snackbar__text"></div>
-      <button class="mdl-snackbar__action" type="button"></button>
-    </div>
-    <script src="scripts/app.js"></script>
-  </body>
+  </div>
+  <div class="flt"><button id="gd-share" class="btn btn-primary rounded-circle">Share</button></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="scripts/app.js"></script>
+</body>
+
 </html>
