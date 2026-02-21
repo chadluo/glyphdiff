@@ -117,9 +117,9 @@ $("gd-swap").addEventListener("click", function () {
   $("gd-fontfamily2").value = s2.style.fontFamily = conf.fontfamily2 || def.fontfamily2;
 
   s1.style.fontWeight = conf.fontweight1;
-  $("gd-fontweight1").MaterialSlider.change(conf.fontweight1);
+  $("gd-fontweight1").value = conf.fontweight1;
   s2.style.fontWeight = conf.fontweight2;
-  $("gd-fontweight2").MaterialSlider.change(conf.fontweight2);
+  $("gd-fontweight2").value = conf.fontweight2;
 
   updateLabel("label-font1", s1);
   updateLabel("label-font2", s2);
@@ -128,11 +128,11 @@ $("gd-swap").addEventListener("click", function () {
     let curr1 = slantOptions1[i];
     let curr2 = slantOptions2[i];
     if (curr1.value === conf.slant1) {
-      curr1.parentNode.MaterialRadio.check();
+      curr1.checked = true;
       s1.style.fontStyle = curr1.value;
     }
     if (curr2.value === conf.slant2) {
-      curr2.parentNode.MaterialRadio.check();
+      curr2.checked = true;
       s2.style.fontStyle = curr2.value;
     }
   }
@@ -159,14 +159,12 @@ $("gd-baseline").addEventListener("change", (event) => {
 
 $("gd-darkmode").checked = conf.darkmode === "1";
 if ($("gd-darkmode").checked) {
-  $("writepad").className = "mdl-color-text--grey-400";
-  document.body.className = "mdl-color--grey-900";
+  document.body.setAttribute("data-bs-theme", "dark");
 }
 
 $("gd-darkmode").addEventListener("change", (event) => {
   let checker = event.target;
-  $("writepad").className = checker.checked ? "mdl-color-text--grey-400" : "mdl-color-text--grey-900";
-  document.body.className = checker.checked ? "mdl-color--grey-900" : "mdl-color--grey-50 ";
+  document.body.setAttribute("data-bs-theme", checker.checked ? "dark" : "light");
   conf.darkmode = checker.checked ? 1 : 0;
 });
 
@@ -227,17 +225,8 @@ $("gd-translateY").oninput = function (event) {
 // share config snackbar
 
 $("gd-share").onclick = function () {
-  let t = document.createElement("textarea");
   let newURL = location.origin + location.pathname + queries();
-  t.textContent = newURL;
-  t.style.position = "fixed";
-  document.body.appendChild(t);
-  t.select();
-  document.execCommand("copy");
-  $("share-link").MaterialSnackbar.showSnackbar({
-    message: "configuration copied.",
-  });
-  document.body.removeChild(t);
+  navigator.clipboard.writeText(newURL);
   history.pushState(null, null, newURL);
 };
 

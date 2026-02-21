@@ -111,26 +111,6 @@ body {
   right: 4vmin;
 }
 
-/* tooltips */
-
-.tooltip {
-  line-height: 24px;
-}
-.mdl-slider__container {
-  height: 24px;
-}
-#size2-tooltip::before {
-  content: "Size: ";
-}
-#spacing2-tooltip::before {
-  content: "Tracking: ";
-}
-#translateX-tooltip::before {
-  content: "x-offset: ";
-}
-#translateY-tooltip::before {
-  content: "y-offset: ";
-}
 
 /* helpers */
 
